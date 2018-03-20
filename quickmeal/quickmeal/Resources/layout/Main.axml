@@ -3,9 +3,21 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <Button
-        android:id="@+id/myButton"
+    <TextView
+        android:text="@string/mainViewTitle"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello" />
+        android:id="@+id/textMainView" />
+    <Button
+        android:text="@string/showFridgeButtonText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/showFridgeButton"
+        android:enabled="true" />
+    <Button
+        android:text="@string/favouriteViewButtonText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/favouriteViewButton" />
 </LinearLayout>

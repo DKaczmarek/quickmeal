@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="hello">Hello World, Click Me!</string>
+  <!-- main view related strings-->
   <string name="app_name">QuickMeal</string>
+  <string name="mainViewTitle">Ekran startowy - Witaj !</string>
+  
+  <string name="showFridgeButtonText">Przejdź do lodówki</string>
+  <string name="favouriteViewButtonText">Przejdź do ulubionych</string>
+
+  <!-- fridge view related strings -->
+  <string name="fridgeViewTitle">Twoja lodówka</string>
+  
+  <!-- favourite view realted strings-->
+  <string name="favouriteViewTitle">Twoje ulubione przepisy</string>
 </resources>
