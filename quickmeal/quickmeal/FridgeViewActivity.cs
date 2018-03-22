@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace quickmeal
 {
-    [Activity(Label = "@string/app_name")]
+    [Activity(Label = "@string/fridgeViewTitle")]
     public class FridgeViewActivity : Activity
     {
         private List<string> FridgeItems;
@@ -25,7 +25,7 @@ namespace quickmeal
             Window.AddFlags(WindowManagerFlags.Fullscreen);
 
             // Set our view from the "fridge" layout resource
-            SetContentView(Resource.Layout.Fridge);
+            SetContentView(Resource.Layout.Fridge_x);
 
             // Create your application here
             EditText textEditor = (EditText)FindViewById(Resource.Id.textEditor);
@@ -37,7 +37,7 @@ namespace quickmeal
             FridgeItems.Add("Pomidor"); FridgeItems.Add("Banan"); FridgeItems.Add("Jagody"); FridgeItems.Add("Ketchup");
             FridgeItems.Add("Truskawki"); FridgeItems.Add("Kiełbasa sucha krakowska"); FridgeItems.Add("Margaryna"); FridgeItems.Add("Szynka");
             FridgeItems.Add("Rzodkiewka"); FridgeItems.Add("Cebula"); FridgeItems.Add("Ser Gouda"); FridgeItems.Add("Oscypek");
-            ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSelectableListItem, FridgeItems);
+            ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleExpandableListItem1, FridgeItems);
             mListView.Adapter = adapter;
 
             addButton.Click += (sender, e) =>
