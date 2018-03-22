@@ -9,15 +9,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textMainView" />
-    <Button
-        android:text="@string/showFridgeButtonText"
+    <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/showFridgeButton"
-        android:enabled="true" />
-    <Button
-        android:text="@string/favouriteViewButtonText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/favouriteViewButton" />
+        android:layout_height="match_parent"
+        android:rowCount="2"
+        android:columnCount="2"
+        android:id="@+id/gridLayout1">
+        <Button
+            android:text="@string/recipefornowButtonText"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_columnSpan="2"
+            android:background="#FFC107"
+            android:id="@+id/recipefornowButton" />
+        <Button
+            android:text="@string/showFridgeButtonText"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:background="#2196F3"
+            android:id="@+id/showFridgeButton"
+            android:enabled="true" />
+        <Button
+            android:text="@string/favouriteViewButtonText"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:background="#F44336"
+            android:id="@+id/favouriteViewButton" />
+    </GridLayout>
 </LinearLayout>

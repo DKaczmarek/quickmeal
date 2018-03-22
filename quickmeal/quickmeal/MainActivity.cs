@@ -23,11 +23,18 @@ namespace quickmeal
             // Register buttons
             Button FavouriteViewButton = FindViewById<Button>(Resource.Id.favouriteViewButton);
             Button ShowFridgeButton = FindViewById<Button>(Resource.Id.showFridgeButton);
-
+            Button RecipeForNowButton = FindViewById<Button>(Resource.Id.recipefornowButton);
+            
             // add action to buttons
             ShowFridgeButton.Click += (sender, e) =>
             {
                 var intent = new Intent(this, typeof(FridgeViewActivity));
+                StartActivity(intent);
+            };
+
+            RecipeForNowButton.Click += (sender, e) =>
+            {
+                var intent = new Intent(this, typeof(RecipeActivity));
                 StartActivity(intent);
             };
 
