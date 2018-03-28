@@ -21,7 +21,8 @@
             android:layout_rowWeight="1"
             android:layout_columnSpan="2"
             android:background="#FFC107"
-            android:id="@+id/recipefornowButton" />
+            android:id="@+id/recipefornowButton"
+            android:layout_marginBottom="0.0dp" />
         <Button
             android:text="@string/showFridgeButtonText"
             android:layout_columnWeight="1"

@@ -61,10 +61,17 @@
     <Compile Include="FridgeViewActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="RecipeActivity.cs" />
+    <Compile Include="RecipePreview.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\layout\FavRecipe.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\FavRecipePreview.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />

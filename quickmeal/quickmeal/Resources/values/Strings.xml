@@ -16,4 +16,13 @@
 
   <!-- favourite view realted strings-->
   <string name="favouriteViewTitle">Twoje ulubione przepisy</string>
+  <string-array name="favRecipesArray">
+    <item>Kurczak w maśle</item>
+    <item>Kanapka z szynką indyczą</item>
+    <item>Kulki czekoladowe z mlekiem</item>
+    <item>Królik w owocach</item>
+  </string-array>
+  
+  <!-- favourite recipe preview strings -->
+  <string name="favRecipePreviewTitle">Wybrany przepis</string>
 </resources>
