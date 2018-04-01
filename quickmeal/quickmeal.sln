@@ -3,25 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "quickmeal", "quickmeal\quickmeal.csproj", "{89498EA2-A644-4C93-9D75-C6A33C71C243}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "quickmeal.Android", "quickmeal\quickmeal.Android\quickmeal.Android.csproj", "{0EEEEDBF-3F44-49B3-9CFF-6C525C894F50}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "quickmeal", "quickmeal\quickmeal\quickmeal.shproj", "{E0DD6CB5-B4A7-4AD4-BA38-A805F67D0A85}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		quickmeal\quickmeal\quickmeal.projitems*{0eeeedbf-3f44-49b3-9cff-6c525c894f50}*SharedItemsImports = 4
+		quickmeal\quickmeal\quickmeal.projitems*{e0dd6cb5-b4a7-4ad4-ba38-a805f67d0a85}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{89498EA2-A644-4C93-9D75-C6A33C71C243}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89498EA2-A644-4C93-9D75-C6A33C71C243}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89498EA2-A644-4C93-9D75-C6A33C71C243}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{89498EA2-A644-4C93-9D75-C6A33C71C243}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89498EA2-A644-4C93-9D75-C6A33C71C243}.Release|Any CPU.Build.0 = Release|Any CPU
-		{89498EA2-A644-4C93-9D75-C6A33C71C243}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0EEEEDBF-3F44-49B3-9CFF-6C525C894F50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EEEEDBF-3F44-49B3-9CFF-6C525C894F50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EEEEDBF-3F44-49B3-9CFF-6C525C894F50}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0EEEEDBF-3F44-49B3-9CFF-6C525C894F50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EEEEDBF-3F44-49B3-9CFF-6C525C894F50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EEEEDBF-3F44-49B3-9CFF-6C525C894F50}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {EB6A71F4-B472-4DCC-8085-08C1C61E3E8A}
+		SolutionGuid = {24E3E53E-8A42-4FA4-9066-25B18F5E9A21}
 	EndGlobalSection
 EndGlobal

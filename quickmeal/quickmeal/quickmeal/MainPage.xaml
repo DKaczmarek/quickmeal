@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:quickmeal"
+             x:Class="quickmeal.MainPage">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="Android, WinPhone, Windows" Value="20" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.BackgroundColor>
+        <Color>#33302E</Color>
+    </ContentPage.BackgroundColor>
+
+    <!-- to scroll during landscape orientation -->
+    <ScrollView x:Name="mainPageScrollView">
+        <StackLayout VerticalOptions="FillAndExpand" Spacing="0">
+
+            <Label Text="Witamy w kuchni!" FontSize="24" TextColor="WhiteSmoke"/>
+            <Image Source="mainstock.png"
+                   HorizontalOptions="FillAndExpand"/>
+
+            <Button x:Name="findRecipeButton" 
+                    Text="Znajdź przepis!" 
+                    BackgroundColor="Orange"
+                    TextColor="#302e2e"
+                    HeightRequest="150"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Button x:Name="fridgeButton" 
+                        Text="Moja lodówka" 
+                        BackgroundColor="SkyBlue"
+                        TextColor="#302e2e"
+                        HeightRequest="100"
+                        HorizontalOptions="FillAndExpand"
+                        />
+                
+                <Button x:Name="favRecipeButton" 
+                        Text="Ulubione Przepisy" 
+                        BackgroundColor="IndianRed"
+                        TextColor="#302e2e"
+                        HeightRequest="100"
+                        HorizontalOptions="FillAndExpand"
+                        />
+            </StackLayout>
+        
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
