@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:quickmeal"
+             x:Class="quickmeal.FridgePage"
+             Title="Lodowka">
+
+    <StackLayout  BackgroundColor="SkyBlue">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="SkyBlue">
+            <Entry Placeholder="Nazwa produktu" WidthRequest="250" HorizontalOptions="EndAndExpand"></Entry>
+            <Button Text="Dodaj" HorizontalOptions="EndAndExpand" 
+                    TextColor="White" BackgroundColor="SeaGreen"/>
+        </StackLayout>
+
+
+     
+        <ListView ItemsSource="{Binding Products}"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="None"
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell >
+                  
+                        <StackLayout Margin="6,3,6,3" BackgroundColor="DimGray">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding ProductID}"
+                                    Margin="6,1,6,1" TextColor="White" 
+                                    FontAttributes="Bold" FontSize="Medium"/>
+                                <Label Text="{Binding Name}"
+                                    HorizontalOptions="FillAndExpand"  Margin="1" TextColor="White" 
+                                    FontAttributes="Bold" FontSize="Medium"/>
+                                <Button Text="Usuń" HorizontalOptions="EndAndExpand" 
+                                        TextColor="White" BackgroundColor="PaleVioletRed"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding Category}"
+                                   Margin="6,0,6,0" TextColor="White" 
+                                    FontAttributes="Bold" FontSize="Small"/>
+                                <Label Text="{Binding Amount}"
+                                    Margin="1,0,0,0" TextColor="White" 
+                                    FontAttributes="Bold" FontSize="Small"/>
+                                <Label Text="{Binding Type}"
+                                   Margin="0,0,1,0" TextColor="White" 
+                                    FontAttributes="Bold" FontSize="Small"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </StackLayout>
+</ContentPage>

@@ -14,5 +14,10 @@ namespace quickmeal
 		{
 			InitializeComponent();
 		}
-	}
+
+        private void fridgeButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new FridgePage());
+        }
+    }
 }
