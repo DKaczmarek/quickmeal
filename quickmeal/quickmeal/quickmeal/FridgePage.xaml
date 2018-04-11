@@ -29,11 +29,11 @@
                                 <Label Text="{Binding Name}"
                                     HorizontalOptions="FillAndExpand"  Margin="1" TextColor="White" 
                                     FontAttributes="Bold" FontSize="Medium"/>
-                                <Button HorizontalOptions="End" TextColor="White" BackgroundColor="SeaGreen" 
-                                        Clicked="Remove_Clicked" Image=""/>
+                                <Button HorizontalOptions="End"  BorderRadius="20" TextColor="White" BackgroundColor="SeaGreen" 
+                                        Clicked="Remove_Clicked" Image="ic_mode_edit_white_24dp.png" />
 
-                                <Button Text="Usuń" HorizontalOptions="End" 
-                                        TextColor="White" BackgroundColor="PaleVioletRed" Clicked="Remove_Clicked"/>
+                                <Button HorizontalOptions="End" BorderRadius="20"  TextColor="White" BackgroundColor="PaleVioletRed"
+                                        Clicked="Remove_Clicked" Image="ic_delete_white_24dp.png"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                 <Label Text="{Binding Category}"
