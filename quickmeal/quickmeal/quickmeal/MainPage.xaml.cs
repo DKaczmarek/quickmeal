@@ -15,9 +15,14 @@ namespace quickmeal
 			InitializeComponent();
 		}
 
-        private void fridgeButton_Clicked(object sender, EventArgs e)
+        private async void fridgeButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new FridgePage());
+            await Navigation.PushAsync(new FridgePage());
+        }
+
+        private async void favRecipeButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new FavouriteRecipesPage());
         }
     }
 }

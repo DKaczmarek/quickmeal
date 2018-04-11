@@ -16,19 +16,19 @@
 
     <!-- to scroll during landscape orientation -->
     <ScrollView x:Name="mainPageScrollView">
-        <StackLayout VerticalOptions="FillAndExpand" Spacing="0">
+        <StackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
 
-            <Label Text="Witamy w kuchni!" FontSize="24" TextColor="WhiteSmoke"/>
+            <Label Text="Witamy w kuchni!" FontSize="24" TextColor="WhiteSmoke" HorizontalOptions="CenterAndExpand"/>
             <Image Source="mainstock.png"
-                   HorizontalOptions="FillAndExpand"/>
-
+                   HorizontalOptions="EndAndExpand"/>
+            
             <Button x:Name="findRecipeButton" 
                     Text="Znajdź przepis!" 
                     BackgroundColor="Orange"
                     TextColor="#302e2e"
                     HeightRequest="150"/>
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
                 <Button x:Name="fridgeButton" 
                         Text="Moja lodówka" 
                         BackgroundColor="SkyBlue"
@@ -44,9 +44,10 @@
                         TextColor="#302e2e"
                         HeightRequest="100"
                         HorizontalOptions="FillAndExpand"
+                        Clicked="favRecipeButton_Clicked"
                         />
             </StackLayout>
-        
+           
         </StackLayout>
     </ScrollView>
 

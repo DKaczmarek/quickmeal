@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="quickmeal.FavouriteRecipesPage">
+    
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="Android, WinPhone, Windows" Value="0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <StackLayout VerticalOptions="FillAndExpand" 
+                 HorizontalOptions="FillAndExpand"
+                 BackgroundColor="#33302E"
+                 Padding="5">
+
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+
+            <Entry x:Name="FavRecipesSearchBar"
+                   TextColor="White"
+                   WidthRequest="250"
+                   HorizontalOptions="FillAndExpand"/>
+
+            <Button Text="Szukaj"
+                    HorizontalOptions="FillAndExpand"
+                    BackgroundColor="IndianRed"
+                    TextColor="White"
+                    Clicked="OnSearchButtonPressed"/>
+            
+        </StackLayout>
+        
+        <ListView ItemsSource="{Binding Recipes}"
+                  SeparatorVisibility="None"
+                  HasUnevenRows="True"
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand"
+                  x:Name="FavRecipesList">
+
+            <ListView.ItemTemplate>
+
+                <DataTemplate>
+                    
+                    <ViewCell x:Name="RecipeItem">
+
+                        <ViewCell.ContextActions>
+                            <MenuItem Clicked="OnMore" CommandParameter="{Binding .}"
+                                Text="More" />
+                            <MenuItem Clicked="OnDelete" CommandParameter="{Binding .}"
+                                Text="Delete" IsDestructive="True" />
+                        </ViewCell.ContextActions>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="1">
+
+                            <StackLayout
+                                     BackgroundColor="#423e3c"
+                                     Orientation="Vertical"
+                                     HorizontalOptions="FillAndExpand">
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <Label Text="{Binding RecipeID}"
+                                        Margin="4,2"
+                                        FontAttributes="Bold"
+                                        FontSize="Medium"
+                                        HorizontalOptions="Start"
+                                        TextColor="White"/>
+
+                                    <Label Text="{Binding Name}"
+                                        Margin="4,2"
+                                        FontAttributes="Bold"
+                                        FontSize="Medium" 
+                                        TextColor="White"
+                                        HorizontalOptions="Start"/>
+
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <Label Text="Czas:"
+                                       Margin="4"
+                                       FontAttributes="Bold"
+                                       FontSize="Medium" 
+                                       TextColor="White"/>
+
+                                    <Label Text="{Binding Time}"
+                                       Margin="4"
+                                       FontAttributes="Bold"
+                                       FontSize="Medium"
+                                       TextColor="White"/>
+
+                                    <Label Text="min"
+                                       Margin="4"
+                                       FontAttributes="Bold"
+                                       FontSize="Medium"
+                                       TextColor="White"/>
+
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </StackLayout>
+                        
+                    </ViewCell>
+                    
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+        <Button Text="Pokaż"
+                TextColor="White"
+                BackgroundColor="IndianRed"
+                FontSize="Medium"
+                Clicked="ShowRecipeButton_Clicked"
+                HorizontalOptions="FillAndExpand"/>
+    </StackLayout>
+</ContentPage>
