@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using Xamarin.Forms;
 
 namespace quickmeal.ViewModels
 {
@@ -24,5 +25,27 @@ namespace quickmeal.ViewModels
             }
         }
 
+        public Command<Models.Product> RemoveCommand
+        {
+            get
+            {
+                return new Command<Models.Product>((product) =>
+                {
+                    Products.Remove(product);
+                });
+            }
+        }
+
+        public Command<Models.Product> UpdateCommand
+        {
+            get
+            {
+                return new Command<Models.Product>((product) =>
+                {
+                Products.Remove(product);
+                Products.Insert(Products.IndexOf(product), product);
+                });
+            }
+        }
     }
 }
