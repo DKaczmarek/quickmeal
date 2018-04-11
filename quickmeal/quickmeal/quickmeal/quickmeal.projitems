@@ -19,6 +19,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)FavouriteRecipesPage.xaml.cs">
+      <DependentUpon>FavouriteRecipesPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)FridgePage.xaml.cs">
       <DependentUpon>FridgePage.xaml</DependentUpon>
     </Compile>
@@ -26,15 +30,26 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\Product.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Recipe.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MyDataSource\ProductData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MyDataSource\RecipeData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RecipePreview.xaml.cs">
+      <DependentUpon>RecipePreview.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProductViewModels.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RecipeViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="$(MSBuildThisFileDirectory)FavouritePage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)FavouriteRecipesPage.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)FavPage.xaml">
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)RecipePreview.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

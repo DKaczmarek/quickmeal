@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="quickmeal.RecipePreview">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="Android, WinPhone, Windows" Value="0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    
+    <ScrollView>
+        <StackLayout Orientation="Vertical" BackgroundColor="#33302E">
+
+            <Label x:Name="RecipeName"
+                   TextColor="White"
+                   FontSize="25"
+                   HorizontalOptions="CenterAndExpand"/>
+            <Image x:Name="RecipeImage"
+                   Aspect="AspectFill"
+                   HeightRequest="200"/>
+            <Label x:Name="RecipeTime"
+                   TextColor="White"
+                   FontSize="22"
+                   HorizontalOptions="StartAndExpand"/>
+            <Label x:Name="RecipeDescription"
+                   TextColor="White"
+                   FontSize="22"
+                   HorizontalOptions="StartAndExpand"/>
+        
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
