@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using Xamarin.Forms;
 
@@ -8,6 +9,7 @@ namespace quickmeal.ViewModels
 {
     public class ProductViewModels
     {
+        MyDataSource.ProductData _context = new MyDataSource.ProductData();
         private ObservableCollection<Models.Product> products;
         public ObservableCollection<Models.Product> Products
         {
@@ -18,10 +20,20 @@ namespace quickmeal.ViewModels
         public ProductViewModels()
         {
             Products = new ObservableCollection<Models.Product>();
-            MyDataSource.ProductData _context = new MyDataSource.ProductData();
-            foreach(var product in _context.Products)
+            foreach (var product in _context.Products)
             {
                 Products.Add(product);
+            }
+            Products = new ObservableCollection<Models.Product>(Products.OrderBy(i => i.Name));
+        }
+        public Command<Models.Product> InsertCommand
+        {
+            get
+            {
+                return new Command<Models.Product>((product) =>
+                {
+                    Products.Insert(0, product);
+                });
             }
         }
 

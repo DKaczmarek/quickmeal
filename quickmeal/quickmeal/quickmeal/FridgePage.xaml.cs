@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,11 +12,12 @@ namespace quickmeal
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FridgePage : ContentPage
     {
+        private ListView listView;
         public FridgePage()
         {
             InitializeComponent();
             BindingContext = new ViewModels.ProductViewModels();
-           
+
         }
         private void Remove_Clicked(object sender, EventArgs e)
         {
@@ -24,5 +26,27 @@ namespace quickmeal
             var vm = BindingContext as ViewModels.ProductViewModels;
             vm?.RemoveCommand.Execute(product);
         }
+        private void Edit_Clicked(object sender, EventArgs e)
+        {
+            object obj = listView.SelectedItem;
+            Models.Product product = new Models.Product();
+            Navigation.PushAsync(new ProductPreview(obj));
+        }
+
+        private void Add_Clicked(object sender, EventArgs e)
+        {
+            Models.Product product = new Models.Product();
+            var productName = productEntry.Text;
+            product.Name = productName;
+
+            var button = sender as Button;
+            var vm = BindingContext as ViewModels.ProductViewModels;
+
+            if (!string.IsNullOrEmpty(productName))
+            {
+                vm?.InsertCommand.Execute(product);
+            }
+        }
+
     }
 }
