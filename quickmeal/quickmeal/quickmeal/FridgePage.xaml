@@ -5,7 +5,7 @@
              x:Class="quickmeal.FridgePage"
              Title="Lodowka">
     
-    <StackLayout  BackgroundColor="SkyBlue">
+    <StackLayout BackgroundColor="SkyBlue">
         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="SkyBlue">
             <Entry Placeholder="Nazwa produktu" HorizontalOptions="FillAndExpand" x:Name="productEntry" />
             <Button Text="Dodaj" HorizontalOptions="End" 

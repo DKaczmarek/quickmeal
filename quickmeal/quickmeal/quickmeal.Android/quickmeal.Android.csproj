@@ -59,9 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
-    <Compile Include="ProductPreview.xaml.cs">
-      <DependentUpon>ProductPreview.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -120,11 +117,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_delete_white_24dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="ProductPreview.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="..\quickmeal\quickmeal.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

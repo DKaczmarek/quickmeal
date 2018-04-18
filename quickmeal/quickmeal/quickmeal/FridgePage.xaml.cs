@@ -12,12 +12,10 @@ namespace quickmeal
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FridgePage : ContentPage
     {
-        private ListView listView;
         public FridgePage()
         {
             InitializeComponent();
             BindingContext = new ViewModels.ProductViewModels();
-
         }
         private void Remove_Clicked(object sender, EventArgs e)
         {
@@ -28,9 +26,9 @@ namespace quickmeal
         }
         private void Edit_Clicked(object sender, EventArgs e)
         {
-            object obj = listView.SelectedItem;
-            Models.Product product = new Models.Product();
-            Navigation.PushAsync(new ProductPreview(obj));
+            var button = sender as Button;
+            var product = button?.BindingContext as Models.Product;
+            Navigation.PushAsync(new ProductPreview(product));
         }
 
         private void Add_Clicked(object sender, EventArgs e)

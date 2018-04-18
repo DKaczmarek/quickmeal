@@ -15,10 +15,10 @@ namespace quickmeal.Models
         public Product()
         {
             ProductID = 0;
-            Name = "";
-            Category = "";
+            Name = "Null";
+            Category = "Unknown";
             Amount = 0;
-            Type = "";
+            Type = "g";
         }
     }
 }
