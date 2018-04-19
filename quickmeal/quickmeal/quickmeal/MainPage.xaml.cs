@@ -24,5 +24,10 @@ namespace quickmeal
         {
             await Navigation.PushAsync(new FavouriteRecipesPage());
         }
+
+        private async void findRecipeButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new FindMeRecipePage());
+        }
     }
 }

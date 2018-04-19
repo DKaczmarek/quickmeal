@@ -26,7 +26,8 @@
                     Text="Znajdź przepis!" 
                     BackgroundColor="Orange"
                     TextColor="#302e2e"
-                    HeightRequest="150"/>
+                    HeightRequest="150"
+                    Clicked="findRecipeButton_Clicked"/>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
                 <Button x:Name="fridgeButton" 

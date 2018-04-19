@@ -27,6 +27,8 @@ namespace quickmeal
             recipes = viewModels.Recipes;
 
             listView = this.FindByName<ListView>("FavRecipesList");
+
+            SearchBarEventConnect();
         }
 
         private void OnMore(object sender, EventArgs e)
@@ -64,6 +66,20 @@ namespace quickmeal
                 );
 
             listView.ItemsSource = searchResult;
+        }
+
+        private void SearchBarEventConnect()
+        {
+            Entry searchBar = this.FindByName<Entry>("FavRecipesSearchBar");
+            searchBar.TextChanged += (sender, e) =>
+            {
+                string keyword = searchBar.Text;
+                IEnumerable<Recipe> searchResult = recipes.Where(
+                r => r.Name.ToLower().Contains(keyword.ToLower())
+                );
+
+                listView.ItemsSource = searchResult;
+            };
         }
     }
 }
