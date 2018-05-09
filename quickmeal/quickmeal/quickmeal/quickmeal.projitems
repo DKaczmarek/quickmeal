@@ -22,10 +22,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Constants\Constant.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FavouriteRecipesPage.xaml.cs">
       <DependentUpon>FavouriteRecipesPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)FillDatabase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FindMeRecipePage.xaml.cs">
       <DependentUpon>FindMeRecipePage.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -33,20 +35,30 @@
     <Compile Include="$(MSBuildThisFileDirectory)FridgePage.xaml.cs">
       <DependentUpon>FridgePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Repositories\KategoriaRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Kategoria.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Product.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Produkt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Przepis.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Recipe.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Skladnik.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Typ.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MyDataSource\ProductData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MyDataSource\RecipeData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ProductPreview.xaml.cs">
       <DependentUpon>ProductPreview.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Repositories\ProduktRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Repositories\PrzepisRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RecipePreview.xaml.cs">
       <DependentUpon>RecipePreview.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Repositories\SkladnikRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Repositories\TypRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProductViewModels.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RecipeViewModels.cs" />
   </ItemGroup>
@@ -67,5 +79,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Repositories\" />
   </ItemGroup>
 </Project>

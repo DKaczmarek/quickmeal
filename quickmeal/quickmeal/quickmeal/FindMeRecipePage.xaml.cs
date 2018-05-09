@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using quickmeal.Models;
+using quickmeal.Constants;
+using quickmeal.Droid;
 namespace quickmeal
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -73,10 +75,22 @@ namespace quickmeal
 
         private async void FindButton_Clicked(object sender, EventArgs e)
         {
+            
             if (BreakfastClicked || DessertClicked || DinnerClicked)
                 await DisplayAlert("Alert", "Teraz powinno szukać przepisu.", "OK");
             else
                 await DisplayAlert("Hej!", "Nie wybrałeś czego szukasz.", "OK");
+
+            if (BreakfastClicked)
+            {                
+                var lista = App.PrzepisRepo.GetSniadaniaPrzepis();
+                string przepisy = String.Empty;
+                foreach (var x in lista)
+                {
+                    przepisy = String.Concat(String.Concat(x.Nazwa, x.Opis), x.Zdjecie);
+                    await DisplayAlert("test", przepisy, "ok");
+                }
+            }
         }
     }
 }
