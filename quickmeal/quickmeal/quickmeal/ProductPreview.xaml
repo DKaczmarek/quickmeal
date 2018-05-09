@@ -47,6 +47,7 @@
                    FontSize="25"
                    HorizontalOptions="CenterAndExpand"/>
             </StackLayout>
+            <Button Text="Zapisz" BackgroundColor="SeaGreen" Clicked="SaveClicked"/>
 
         </StackLayout>
     </ScrollView>

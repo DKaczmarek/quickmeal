@@ -16,7 +16,8 @@ namespace quickmeal.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
+            Window window = this.Window;
+            window.SetStatusBarColor(Android.Graphics.Color.Rgb(255, 140, 26));
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Android.Views;
 using Xamarin.Forms;
 
 namespace quickmeal
@@ -11,8 +11,14 @@ namespace quickmeal
 	{
 		public App ()
 		{
-			InitializeComponent();
-			MainPage = new NavigationPage(new MainPage());
+            InitializeComponent();
+      
+            MainPage = new NavigationPage(new MainPage())
+            {
+                BarBackgroundColor = Color.FromRgb(255, 153, 51), //#ff9933
+                BarTextColor = Color.White,
+                
+            };
 		}
 
 		protected override void OnStart ()
