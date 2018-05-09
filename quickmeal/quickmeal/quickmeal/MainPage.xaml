@@ -11,29 +11,31 @@
         </OnPlatform>
     </ContentPage.Padding>
     <ContentPage.BackgroundColor>
-        <Color>#33302E</Color>
+        <Color>#e6e6e6</Color>
     </ContentPage.BackgroundColor>
 
     <!-- to scroll during landscape orientation -->
     <ScrollView x:Name="mainPageScrollView">
         <StackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
 
-            <Label Text="Witamy w kuchni!" FontSize="24" TextColor="WhiteSmoke" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="Witamy w kuchni!" FontSize="24" TextColor="#404040" HorizontalOptions="CenterAndExpand"/>
             <Image Source="mainstock.png"
                    HorizontalOptions="EndAndExpand"/>
             
             <Button x:Name="findRecipeButton" 
                     Text="Znajdź przepis!" 
-                    BackgroundColor="Orange"
-                    TextColor="#302e2e"
+                    BorderRadius="15"
+                    BackgroundColor="#ffa31a"
+                    TextColor="#ffffff"
                     HeightRequest="150"
                     Clicked="findRecipeButton_Clicked"/>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
                 <Button x:Name="fridgeButton" 
                         Text="Moja lodówka" 
-                        BackgroundColor="SkyBlue"
-                        TextColor="#302e2e"
+                        BackgroundColor="#33bbff"
+                        BorderRadius="10"
+                        TextColor="#f2f2f2"
                         HeightRequest="100"
                         HorizontalOptions="FillAndExpand"
                         Clicked="fridgeButton_Clicked"
@@ -42,7 +44,8 @@
                 <Button x:Name="favRecipeButton" 
                         Text="Ulubione Przepisy" 
                         BackgroundColor="IndianRed"
-                        TextColor="#302e2e"
+                        BorderRadius="10"
+                        TextColor="#f2f2f2"
                         HeightRequest="100"
                         HorizontalOptions="FillAndExpand"
                         Clicked="favRecipeButton_Clicked"

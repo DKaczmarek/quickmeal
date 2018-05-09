@@ -4,7 +4,7 @@
              x:Class="quickmeal.FindMeRecipePage"
              Title="Znajdź mi przepis">
 
-    <Grid ColumnSpacing="0" RowSpacing="0">
+    <Grid ColumnSpacing="0" RowSpacing="0" BackgroundColor="#f2f2f2">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
@@ -17,11 +17,11 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Text="Wybierz na co masz ochotę:" FontSize="20" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
-        <Button x:Name="BreakfastButton" Text="Śniadanie/ Kolacja" Grid.Row="1" Grid.Column="0" Margin="0,0,0,0" Clicked="BreakfastButton_Clicked"/>
-        <Button x:Name="DinnerButton" Text="Obiad" Grid.Row="1" Grid.Column="1" Margin="0,0,0,0" Clicked="DinnerButton_Clicked"/>
-        <Button x:Name="DessertButton" Text="Deser" Grid.Row="1" Grid.Column="2" Margin="0,0,0,0" Clicked="DessertButton_Clicked"/>
-        <Button x:Name="FindButton" Text="Szukaj" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,0,0" Clicked="FindButton_Clicked"/>
+        <Label Text="Wybierz na co masz ochotę:" TextColor="#1a1a1a" FontSize="20" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+        <Button x:Name="BreakfastButton" Text="Śniadanie/ Kolacja" TextColor="#1a1a1a" BackgroundColor="#cccccc" Grid.Row="1" Grid.Column="0" Margin="10,10,5,5" Clicked="BreakfastButton_Clicked"/>
+        <Button x:Name="DinnerButton" Text="Obiad" TextColor="#1a1a1a"  Grid.Row="1" BackgroundColor="#cccccc" Grid.Column="1" Margin="5,10,5,5" Clicked="DinnerButton_Clicked"/>
+        <Button x:Name="DessertButton" Text="Deser" TextColor="#1a1a1a" BackgroundColor="#cccccc" Grid.Row="1" Grid.Column="2" Margin="5,10,10,5" Clicked="DessertButton_Clicked"/>
+        <Button x:Name="FindButton" Text="Szukaj"  TextColor="#1a1a1a" BackgroundColor="#cccccc"  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="10,5,10,10" Clicked="FindButton_Clicked"/>
     </Grid>
     
     

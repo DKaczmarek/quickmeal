@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Android.Views;
 using Xamarin.Forms;
 using quickmeal.Models;
 using quickmeal.Constants;
@@ -19,6 +19,7 @@ namespace quickmeal
         public static SkladnikRepository SkladnikRepo { get; set; }
         public App (string dbPath, ISQLitePlatform sqlitePlatform)
 		{
+<<<<<<< HEAD
             dbConn = new SQLite.SQLiteConnection(dbPath);
             KategoriaRepo = new KategoriaRepository(sqlitePlatform, dbPath);
             PrzepisRepo = new PrzepisRepository(sqlitePlatform, dbPath);
@@ -35,6 +36,16 @@ namespace quickmeal
 
             InitializeComponent();
 			MainPage = new NavigationPage(new MainPage());
+=======
+            InitializeComponent();
+      
+            MainPage = new NavigationPage(new MainPage())
+            {
+                BarBackgroundColor = Color.FromRgb(255, 153, 51), //#ff9933
+                BarTextColor = Color.White,
+                
+            };
+>>>>>>> 18f61ac21a99ef332567f2603134c54a0242721e
 		}
 
 		protected override void OnStart ()

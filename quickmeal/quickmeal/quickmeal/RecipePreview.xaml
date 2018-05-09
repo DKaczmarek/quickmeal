@@ -11,22 +11,27 @@
     </ContentPage.Padding>
     
     <ScrollView>
-        <StackLayout Orientation="Vertical" BackgroundColor="#33302E">
+        <StackLayout Orientation="Vertical" BackgroundColor="#f2f2f2">
 
             <Label x:Name="RecipeName"
-                   TextColor="White"
+                   TextColor="#1a1a1a"
                    FontSize="25"
+                   Margin="5,5,5,5"
                    HorizontalOptions="CenterAndExpand"/>
             <Image x:Name="RecipeImage"
                    Aspect="AspectFill"
+                   Margin="10,5,10,5"
                    HeightRequest="200"/>
             <Label x:Name="RecipeTime"
-                   TextColor="White"
+                   TextColor="#1a1a1a"
                    FontSize="22"
+                   Margin="5,5,5,5"
                    HorizontalOptions="StartAndExpand"/>
             <Label x:Name="RecipeDescription"
-                   TextColor="White"
-                   FontSize="22"
+                   TextColor="#1a1a1a"
+                   FontSize="18"
+                   Margin="5,5,5,5"
+                   HorizontalTextAlignment="Center"
                    HorizontalOptions="StartAndExpand"/>
         
         </StackLayout>

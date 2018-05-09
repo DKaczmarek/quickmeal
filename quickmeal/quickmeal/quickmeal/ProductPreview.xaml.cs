@@ -41,5 +41,20 @@ namespace quickmeal
             ProductType.Text = product.Type;
 
         }
+        private void SaveClicked(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            var vm = BindingContext as ViewModels.ProductViewModels;
+            vm?.RemoveCommand.Execute(product);
+
+            Entry ProductAmount = this.FindByName<Entry>("ProductAmount");
+            product.Amount = Convert.ToInt32(ProductAmount.Text);
+            vm?.InsertCommand.Execute(product);
+
+
+            Navigation.RemovePage(this);
+            //Navigation.RemovePage(Navigation.NavigationStack.LastOrDefault());
+
+        }
     }
 }

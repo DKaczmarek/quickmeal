@@ -17,6 +17,7 @@ namespace quickmeal
             InitializeComponent();
             BindingContext = new ViewModels.ProductViewModels();
         }
+    
         private void Remove_Clicked(object sender, EventArgs e)
         {
             var button = sender as Button;
@@ -45,6 +46,5 @@ namespace quickmeal
                 vm?.InsertCommand.Execute(product);
             }
         }
-
     }
 }

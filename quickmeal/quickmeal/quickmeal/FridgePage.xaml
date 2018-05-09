@@ -4,12 +4,12 @@
              xmlns:local="clr-namespace:quickmeal"
              x:Class="quickmeal.FridgePage"
              Title="Lodowka">
-    
-    <StackLayout BackgroundColor="SkyBlue">
-        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="SkyBlue">
-            <Entry Placeholder="Nazwa produktu" HorizontalOptions="FillAndExpand" x:Name="productEntry" />
-            <Button Text="Dodaj" HorizontalOptions="End" 
-                    Clicked="Add_Clicked" TextColor="White" BackgroundColor="SeaGreen"/>
+
+    <StackLayout BackgroundColor="#f2f2f2">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="#f2f2f2">
+            <Entry Placeholder="Nazwa produktu" HorizontalOptions="FillAndExpand" Margin="5" x:Name="productEntry" PlaceholderColor="#8c8c8c" TextColor="#333333" />
+            <Button Text="Dodaj" HorizontalOptions="End"  Margin="5" BorderRadius="10"
+                    Clicked="Add_Clicked" TextColor="White" BackgroundColor="#5cd65c"/>
         </StackLayout>
 
         <ListView ItemsSource="{Binding Products}"
@@ -19,36 +19,47 @@
                   VerticalOptions="FillAndExpand">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell >
-                  
-                        <StackLayout Margin="6,3,6,3" BackgroundColor="DimGray">
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                                <Label Text="{Binding ProductID}"
-                                    Margin="6,1,6,1" TextColor="White" 
-                                    FontAttributes="Bold" FontSize="Medium"/>
-                                <Label Text="{Binding Name}"
-                                    HorizontalOptions="FillAndExpand"  Margin="1" TextColor="White" 
-                                    FontAttributes="Bold" FontSize="Medium"/>
+                    <ViewCell>
 
-                                <Button HorizontalOptions="End"  BorderRadius="20" TextColor="White" BackgroundColor="SeaGreen" 
-                                         Clicked="Edit_Clicked" Image="ic_mode_edit_white_24dp.png" />
+                        <StackLayout Margin="6,3,6,3" BackgroundColor="#cccccc">
 
-                                <Button HorizontalOptions="End" BorderRadius="20" TextColor="White" BackgroundColor="PaleVioletRed"
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+
+                                <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Text="{Binding Name}"
+                                    HorizontalOptions="FillAndExpand"  Margin="6,0,0,0" TextColor="#1a1a1a" 
+                                    FontSize="Medium"/>
+
+                                <Button Grid.Column="3" Grid.Row="0" Grid.RowSpan="2" Margin="8,5,0,5"  HorizontalOptions="End"  BorderRadius="20" TextColor="White" BackgroundColor="#5cd65c" 
+                                    Clicked="Edit_Clicked" Image="ic_mode_edit_white_24dp.png" />
+
+                                <Button Grid.Column="4" Grid.Row="0" Grid.RowSpan="2" Margin="0,5,0,5"  HorizontalOptions="End" BorderRadius="20" TextColor="White" BackgroundColor="PaleVioletRed"
                                     Clicked="Remove_Clicked" Image="ic_delete_white_24dp.png"/>
-                            </StackLayout>
-                            
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                                <Label Text="{Binding Category}"
-                                   Margin="6,0,6,0" TextColor="White" 
-                                    FontAttributes="Bold" FontSize="Small"/>
-                                <Label Text="{Binding Amount}"
-                                    Margin="1,0,0,0" TextColor="White" 
-                                    FontAttributes="Bold" FontSize="Small"/>
-                                <Label Text="{Binding Type}"
-                                   Margin="0,0,1,0" TextColor="White" 
-                                    FontAttributes="Bold" FontSize="Small"/>
 
-                            </StackLayout>
+                                <StackLayout Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal">
+                                    <Label   Text="{Binding Category}"
+                                   Margin="6,0,0,0" TextColor="#4d4d4d" 
+                                   FontSize="Small"/>
+                                    <Label  Text="{Binding Amount}"
+                                    Margin="1,0,0,0" TextColor="#4d4d4d" 
+                                    FontSize="Small"/>
+                                    <Label Text="{Binding Type}"
+                                   Margin="0,0,0,0" TextColor="#4d4d4d" 
+                                   FontSize="Small"/>
+                                </StackLayout>
+
+                            </Grid>
+                            
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
