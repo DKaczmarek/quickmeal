@@ -82,7 +82,8 @@ namespace quickmeal
                 await DisplayAlert("Hej!", "Nie wybrałeś czego szukasz.", "OK");
 
             if (BreakfastClicked)
-            {                
+            {
+                var lista2 = App.PrzepisRepo.GetAllPrzepis();
                 var lista = App.PrzepisRepo.GetSniadaniaPrzepis();
                 string przepisy = String.Empty;
                 foreach (var x in lista)

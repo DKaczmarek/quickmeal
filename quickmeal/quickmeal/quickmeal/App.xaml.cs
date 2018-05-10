@@ -35,9 +35,6 @@ namespace quickmeal
 
 
             InitializeComponent();
-			MainPage = new NavigationPage(new MainPage());
-
-            InitializeComponent();
       
             MainPage = new NavigationPage(new MainPage())
             {
