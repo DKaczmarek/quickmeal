@@ -51,7 +51,7 @@ namespace quickmeal
 
             BindingContext = new IngredientItemViewModel(IngredientItems);
             int count = IngredientItems.Count;
-            RecipeIngredientsList.HeightRequest = count * 40;
+            RecipeIngredientsList.HeightRequest = count * 50;
 
             updateFields();
         }

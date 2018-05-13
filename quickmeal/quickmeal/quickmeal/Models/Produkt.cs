@@ -23,11 +23,12 @@ namespace quickmeal.Models
         public Produkt(string nazwa)
         {
             Nazwa = nazwa;
+            Skladniki = new List<Skladnik>();
         }
 
         public Produkt()
         {
-
+            Skladniki = new List<Skladnik>();
         }
     }
 }

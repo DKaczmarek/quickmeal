@@ -36,10 +36,14 @@ namespace quickmeal.Models
             Opis = opis;
             Czas = czas;
             Zdjecie = zdjecie;
+
+            Zawiera = new List<Skladnik>();
         }
 
         public Przepis()
-        { }
+        {
+            Zawiera = new List<Skladnik>();
+        }
 
     }
 }
