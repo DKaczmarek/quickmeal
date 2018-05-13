@@ -70,45 +70,57 @@ namespace quickmeal
             nabial.Produkty = new List<Produkt> { mleko };
             App.KategoriaRepo.Update(nabial);
 
-            Przepis kopytka = App.PrzepisRepo.AddPrzepis("Kopytka", "Z ziemniaków", 30, "Takie kluski z ziemniakow");
+            Przepis kopytka = App.PrzepisRepo.AddPrzepis(
+                "Kopytka",
+                "1. Ziemniaki umyć, obrać, wieksze przekroić, zalać wodą, posolić i zagotować. Gotować pod przykryciem przez ok. 30 minut lub do miękkości (wbity nóż ma gładko w nie wchodzić).\n\n"
+                + "2. Odcedzić i od razu rozgnieść praską na idealnie gładkie puree. Całkowicie ostudzić.\n\n"
+                + "3. Na stolnicę przesiać mąkę, dodać ziemniaki, zrobić w środku wgłębienie i wbić w nie jajko. Całość posolić i zagnieść gładkie ciasto, w razie potrzeby podsypać delikatnie mąką. Można użyć miksera planetarnego (łopatki). Im mniej dodamy mąki, tym kopytka będą delikatniejsze.\n\n"
+                + "4. Zagotować duży garnek z osoloną wodą. Ciasto podzielić na 4 części, z każdej uformować wałeczek o grubości kciuka. Nożem odkrajać kawałki tzw. kopytka o szerokości ok. 1,5 - 2 cm.\n\n"
+                + "5. Wrzucać na gotującą się wodę i gotować przez ok. 4 minuty licząc od czasu wypłynięcia na powierzchnię lub do miękkości. W trakcie gotowania delikatnie przemieszać wodę drewnianą łyżką sprawdzając czy kopytka nie przykleiły się do dna. Wyławiać łyżką cedzakową i wykładać na talerze.", 
+                30,
+                "https://static.gotujmy.pl/ZDJECIE_PRZEPISU_ETAP/kopytka-z-maka-kukurydziana-433153.jpg");
             obiad.Przepisy = new List<Przepis> { kopytka };
             App.TypRepo.Update(obiad);
 
-            Skladnik skladnikiKopytek1 = App.SkladnikRepo.AddSkladnik("500");
+            Skladnik skladnikiKopytek1 = App.SkladnikRepo.AddSkladnik(500, "g");
             kopytka.Zawiera = new List<Skladnik> { skladnikiKopytek1 };
             App.PrzepisRepo.Update(kopytka);
             ziemniaki.Skladniki = new List<Skladnik> { skladnikiKopytek1 };
             App.ProduktRepo.Update(ziemniaki);
 
-            Skladnik skladnikiKopytek2 = App.SkladnikRepo.AddSkladnik("100");
+            Skladnik skladnikiKopytek2 = App.SkladnikRepo.AddSkladnik(100, "g");
             kopytka.Zawiera.Add(skladnikiKopytek2);
             App.PrzepisRepo.Update(kopytka);
             maka_pszenna.Skladniki = new List<Skladnik> { skladnikiKopytek2 };
             App.ProduktRepo.Update(maka_pszenna);
 
-            Skladnik skladnikiKopytek3 = App.SkladnikRepo.AddSkladnik(1);
+            Skladnik skladnikiKopytek3 = App.SkladnikRepo.AddSkladnik(1, "sztuk");
             kopytka.Zawiera.Add(skladnikiKopytek3);
             App.PrzepisRepo.Update(kopytka);
             jajka.Skladniki = new List<Skladnik> { skladnikiKopytek3 };
             App.ProduktRepo.Update(jajka);
 
-            Skladnik skladnikiKopytek4 = App.SkladnikRepo.AddSkladnik("10");
+            Skladnik skladnikiKopytek4 = App.SkladnikRepo.AddSkladnik(10, "g");
             kopytka.Zawiera.Add(skladnikiKopytek4);
             App.PrzepisRepo.Update(kopytka);
             sol.Skladniki = new List<Skladnik> { skladnikiKopytek4 };
             App.ProduktRepo.Update(sol);
 
-            Przepis platkiCzekoladowe = App.PrzepisRepo.AddPrzepis("Platki czekoladowe", "Platki z mlekiem", 2, "Miska z platkami");
+            Przepis platkiCzekoladowe = App.PrzepisRepo.AddPrzepis(
+                "Płatki z mlekiem", 
+                "1. Nasyp płatki do miski.\n\n2. Zalej płatki ciepłym lub zimnym mlekiem.\n\n3. Gotowe!",
+                2,
+                "http://www.prowadzedom.pl/wp-content/uploads/2014/10/kulki-czekoladowe.gif");
             sniadanie.Przepisy = new List<Przepis> { platkiCzekoladowe };
             App.TypRepo.Update(sniadanie);
 
-            Skladnik skladnikiPlatekCzekoladowych1 = App.SkladnikRepo.AddSkladnik("250");
+            Skladnik skladnikiPlatekCzekoladowych1 = App.SkladnikRepo.AddSkladnik(250, "g");
             platkiCzekoladowe.Zawiera = new List<Skladnik> { skladnikiPlatekCzekoladowych1 };
             App.PrzepisRepo.Update(platkiCzekoladowe);
             platki_czekoladowe.Skladniki = new List<Skladnik> { skladnikiPlatekCzekoladowych1 };
             App.ProduktRepo.Update(platki_czekoladowe);
 
-            Skladnik skladnikiPlatekCzekoladowych2 = App.SkladnikRepo.AddSkladnik("250");
+            Skladnik skladnikiPlatekCzekoladowych2 = App.SkladnikRepo.AddSkladnik(250, "ml");
             platkiCzekoladowe.Zawiera.Add(skladnikiPlatekCzekoladowych2);
             App.PrzepisRepo.Update(platkiCzekoladowe);
             mleko.Skladniki = new List<Skladnik> { skladnikiPlatekCzekoladowych2 };

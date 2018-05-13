@@ -41,7 +41,7 @@ namespace quickmeal.MyDataSource
                 RecipeID = 4,
                 TypeID = 3,
                 Name = "Sernik z gruszką",
-                Description = "Sposób przygotowania: 1. Żółtka utrzyj z cukrem i cukrem wanilinowym na krem. Z umytej cytryny zetrzyj skórkę i wyciśnij sok.\n" +
+                Description = "Sposób przygotowania:\n1. Żółtka utrzyj z cukrem i cukrem wanilinowym na krem. Z umytej cytryny zetrzyj skórkę i wyciśnij sok.\n" +
                               "2. Do utartych żółtek dodaj miękką Kasię, startą skórkę z cytryny, mąkę ziemniaczaną i twaróg. Wymieszaj.\n" + 
                               "3. Gruszki obierz, usuń gniazda nasienne i pokrój na ćwiartki. Skrop sokiem z cytryny.\n" + 
                               "4. Formę o średnicy 24 cm wysmaruj Kasią i oprósz mąką. Masę serową przełóż do formy i rozprowadź.\n" +

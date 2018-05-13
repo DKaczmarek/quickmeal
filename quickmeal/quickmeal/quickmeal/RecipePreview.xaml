@@ -16,23 +16,88 @@
             <Label x:Name="RecipeName"
                    TextColor="#1a1a1a"
                    FontSize="25"
+                   FontAttributes="Bold"
                    Margin="5,5,5,5"
                    HorizontalOptions="CenterAndExpand"/>
+
             <Image x:Name="RecipeImage"
                    Aspect="AspectFill"
                    Margin="10,5,10,5"
                    HeightRequest="200"/>
             <Label x:Name="RecipeTime"
                    TextColor="#1a1a1a"
-                   FontSize="22"
+                   FontAttributes="Bold"
+                   FontSize="20"
                    Margin="5,5,5,5"
                    HorizontalOptions="StartAndExpand"/>
+
+            <BoxView HeightRequest="1" 
+                     BackgroundColor="Orange" 
+                     HorizontalOptions="FillAndExpand"
+                     Margin="5,5,5,5"/>
+            
+            <Label x:Name="RecipeIngredientsLabel"
+                   Text="Potrzebne składniki:"
+                   FontAttributes="Bold"
+                   TextColor="#1a1a1a"
+                   FontSize="20"
+                   Margin="5,5,5,5"
+                   HorizontalOptions="StartAndExpand"/>
+
+            <BoxView HeightRequest="1" 
+                     BackgroundColor="Orange" 
+                     HorizontalOptions="FillAndExpand"
+                     Margin="5,5,5,5"/>
+
+            <ListView x:Name="RecipeIngredientsList"
+                      ItemsSource="{Binding IngredientItems}"
+                      Margin="5,5,5,5"
+                      SeparatorVisibility="None"
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="Start"
+                      HeightRequest="125">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Margin="6,4,6,4"
+                                         Orientation="Horizontal">
+                                <Label Text="{Binding Name}"
+                                       FontSize="18"
+                                       TextColor="#1a1a1a"
+                                       HorizontalOptions="StartAndExpand"/>
+                                <Label Text="{Binding Amount}"
+                                       FontSize="18"
+                                       TextColor="#1a1a1a"
+                                       HorizontalOptions="End"/>
+                                <Label Text="{Binding Gramatura}"
+                                       FontSize="18"
+                                       TextColor="#1a1a1a"
+                                       HorizontalOptions="End"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Label x:Name="RecipeMethodLabel"
+                   Text="Sposób przygotowania:"
+                   FontAttributes="Bold"
+                   TextColor="#1a1a1a"
+                   FontSize="20"
+                   Margin="5,5,5,5"
+                   HorizontalOptions="StartAndExpand"/>
+
+            <BoxView HeightRequest="1" 
+                     BackgroundColor="Orange" 
+                     HorizontalOptions="FillAndExpand"
+                     Margin="5,5,5,5"/>
+
             <Label x:Name="RecipeDescription"
                    TextColor="#1a1a1a"
                    FontSize="18"
                    Margin="5,5,5,5"
-                   HorizontalTextAlignment="Center"
-                   HorizontalOptions="StartAndExpand"/>
+                   LineBreakMode="WordWrap"
+                   HorizontalTextAlignment="Start"/>
         
         </StackLayout>
     </ScrollView>

@@ -12,17 +12,17 @@ using Xamarin.Forms.Xaml;
 
 namespace quickmeal
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class FavouriteRecipesPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class FavouriteRecipesPage : ContentPage
+    {
         private ListView listView;
-        private ObservableCollection<Models.Recipe> recipes;
+        private ObservableCollection<Models.Przepis> recipes;
 
-        public FavouriteRecipesPage ()
-		{
+        public FavouriteRecipesPage()
+        {
             InitializeComponent();
 
-            ViewModels.RecipeViewModels viewModels = new ViewModels.RecipeViewModels();
+            ViewModels.PrzepisViewModels viewModels = new ViewModels.PrzepisViewModels();
             BindingContext = viewModels;
             recipes = viewModels.Recipes;
 
@@ -52,20 +52,8 @@ namespace quickmeal
             }
             else
             {
-               await Navigation.PushAsync(new RecipePreview(obj));
+                await Navigation.PushAsync(new RecipePreview(obj));
             }
-        }
-
-        private void OnSearchButtonPressed(object sender, EventArgs e)
-        {
-            Entry searchBar = this.FindByName<Entry>("FavRecipesSearchBar");
-            string keyword = searchBar.Text;
-
-            IEnumerable<Recipe> searchResult = recipes.Where(
-                r => r.Name.ToLower().Contains(keyword.ToLower())
-                );
-
-            listView.ItemsSource = searchResult;
         }
 
         private void SearchBarEventConnect()
@@ -74,8 +62,8 @@ namespace quickmeal
             searchBar.TextChanged += (sender, e) =>
             {
                 string keyword = searchBar.Text;
-                IEnumerable<Recipe> searchResult = recipes.Where(
-                r => r.Name.ToLower().Contains(keyword.ToLower())
+                IEnumerable<Przepis> searchResult = recipes.Where(
+                r => r.Nazwa.ToLower().Contains(keyword.ToLower())
                 );
 
                 listView.ItemsSource = searchResult;

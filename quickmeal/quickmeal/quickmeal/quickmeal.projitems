@@ -35,6 +35,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)FridgePage.xaml.cs">
       <DependentUpon>FridgePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)MyDataSource\PrzepisData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Repositories\KategoriaRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -60,6 +61,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Repositories\SkladnikRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Repositories\TypRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProductViewModels.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PrzepisViewModels.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RecipeViewModels.cs" />
   </ItemGroup>
   <ItemGroup>

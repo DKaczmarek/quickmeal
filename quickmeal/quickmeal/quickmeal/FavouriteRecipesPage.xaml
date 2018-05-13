@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="quickmeal.FavouriteRecipesPage"
-             Title="Ulubione przepisy">
-    
+             Title="Moje przepisy">
+
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <On Platform="Android, WinPhone, Windows" Value="0" />
@@ -18,23 +18,15 @@
         <StackLayout Orientation="Horizontal" VerticalOptions="Center">
 
             <Entry x:Name="FavRecipesSearchBar"
-                   Placeholder="Nazwa przepisu"
+                   Placeholder="Wpisz nazwę szukanego przepisu"
                    Margin="0,5,0,5"
                    PlaceholderColor="#8c8c8c" 
                    TextColor="#333333" 
                    WidthRequest="250"
                    HorizontalOptions="FillAndExpand"/>
 
-            <Button Text="Szukaj"
-                    Margin="1,5,5,5"
-                    BorderRadius="10"
-                    HorizontalOptions="FillAndExpand"
-                    BackgroundColor="IndianRed"
-                    TextColor="White"
-                    Clicked="OnSearchButtonPressed"/>
-            
         </StackLayout>
-        
+
         <ListView ItemsSource="{Binding Recipes}"
                   SeparatorVisibility="None"
                   HasUnevenRows="True"
@@ -45,7 +37,7 @@
             <ListView.ItemTemplate>
 
                 <DataTemplate>
-                    
+
                     <ViewCell x:Name="RecipeItem">
 
                         <ViewCell.ContextActions>
@@ -64,7 +56,7 @@
 
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 
-                                    <Label Text="{Binding Name}"
+                                    <Label Text="{Binding Nazwa}"
                                         FontSize="Medium" 
                                         Margin="6,0,0,0" TextColor="#1a1a1a" 
                                         HorizontalOptions="Start"/>
@@ -77,7 +69,7 @@
                                        TextColor="#4d4d4d" 
                                        FontSize="Medium" />
 
-                                    <Label Text="{Binding Time}"
+                                    <Label Text="{Binding Czas}"
                                        Margin="1,0,0,0" 
                                        TextColor="#4d4d4d" 
                                        FontSize="Medium"/>
@@ -91,9 +83,9 @@
                             </StackLayout>
 
                         </StackLayout>
-                        
+
                     </ViewCell>
-                    
+
                 </DataTemplate>
 
             </ListView.ItemTemplate>
