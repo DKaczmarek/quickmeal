@@ -41,7 +41,6 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\Kategoria.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Product.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Produkt.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Przepis.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Recipe.cs" />

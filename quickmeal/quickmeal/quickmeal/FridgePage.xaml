@@ -16,7 +16,8 @@
                   HasUnevenRows="True"
                   SeparatorVisibility="None"
                   HorizontalOptions="FillAndExpand"
-                  VerticalOptions="FillAndExpand">
+                  VerticalOptions="FillAndExpand"
+                  x:Name="FridgeList">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -36,7 +37,7 @@
                                 </Grid.ColumnDefinitions>
 
 
-                                <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Text="{Binding Name}"
+                                <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Text="{Binding Nazwa}"
                                     HorizontalOptions="FillAndExpand"  Margin="6,0,0,0" TextColor="#1a1a1a" 
                                     FontSize="Medium"/>
 
@@ -47,7 +48,7 @@
                                     Clicked="Remove_Clicked" Image="ic_delete_white_24dp.png"/>
 
                                 <StackLayout Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal">
-                                    <Label   Text="{Binding Category}"
+                                    <Label  x:Name="Nazwa_kategorii"  Text="{Binding Nazwa_kategorii}"
                                    Margin="6,0,0,0" TextColor="#4d4d4d" 
                                    FontSize="Small"/>
                                     <Label  Text="{Binding Amount}"

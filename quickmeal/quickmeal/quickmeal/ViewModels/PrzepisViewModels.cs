@@ -21,7 +21,7 @@ namespace quickmeal.ViewModels
             foreach (var recipe in _context.Recipes)
             {
                 Recipes.Add(recipe);
-            }
+            } 
         }
     }
 }

@@ -10,8 +10,10 @@ namespace quickmeal.ViewModels
     public class ProductViewModels
     {
         MyDataSource.ProductData _context = new MyDataSource.ProductData();
-        private ObservableCollection<Models.Product> products;
-        public ObservableCollection<Models.Product> Products
+
+
+        private ObservableCollection<Models.Produkt> products;
+        public ObservableCollection<Models.Produkt> Products
         {
             get { return products; }
             set { products = value; }
@@ -19,40 +21,42 @@ namespace quickmeal.ViewModels
 
         public ProductViewModels()
         {
-            Products = new ObservableCollection<Models.Product>();
+            Products = new ObservableCollection<Models.Produkt>();
+          
             foreach (var product in _context.Products)
             {
                 Products.Add(product);
             }
-            Products = new ObservableCollection<Models.Product>(Products.OrderBy(i => i.Name));
+
+            Products = new ObservableCollection<Models.Produkt>(Products.OrderBy(i => i.Nazwa));
         }
-        public Command<Models.Product> InsertCommand
+        public Command<Models.Produkt> InsertCommand
         {
             get
             {
-                return new Command<Models.Product>((product) =>
+                return new Command<Models.Produkt>((product) =>
                 {
                     Products.Insert(0, product);
                 });
             }
         }
 
-        public Command<Models.Product> RemoveCommand
+        public Command<Models.Produkt> RemoveCommand
         {
             get
             {
-                return new Command<Models.Product>((product) =>
+                return new Command<Models.Produkt>((product) =>
                 {
                     Products.Remove(product);
                 });
             }
         }
 
-        public Command<Models.Product> UpdateCommand
+        public Command<Models.Produkt> UpdateCommand
         {
             get
             {
-                return new Command<Models.Product>((product) =>
+                return new Command<Models.Produkt>((product) =>
                 {
                 Products.Remove(product);
                 Products.Insert(Products.IndexOf(product), product);
