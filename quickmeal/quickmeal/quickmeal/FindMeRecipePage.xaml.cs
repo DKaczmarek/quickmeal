@@ -34,7 +34,7 @@ namespace quickmeal
             if (!BreakfastClicked)
             {
                 BreakfastClicked = true;
-                button.BackgroundColor = Color.LightGreen;
+                button.BackgroundColor = Color.Orange;
             }
             else
             {
@@ -49,7 +49,7 @@ namespace quickmeal
             if (!DinnerClicked)
             {
                 DinnerClicked = true;
-                button.BackgroundColor = Color.LightGreen;
+                button.BackgroundColor = Color.Orange;
             }
             else
             {
@@ -64,7 +64,7 @@ namespace quickmeal
             if (!DessertClicked)
             {
                 DessertClicked = true;
-                button.BackgroundColor = Color.LightGreen;
+                button.BackgroundColor = Color.Orange;
             }
             else
             {

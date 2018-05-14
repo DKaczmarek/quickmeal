@@ -94,7 +94,7 @@
 
         <Button Text="Pokaż"
                 TextColor="White"
-                BackgroundColor="IndianRed"
+                BackgroundColor="Orange"
                 FontSize="Medium"
                 Clicked="ShowRecipeButton_Clicked"
                 HorizontalOptions="FillAndExpand"/>
