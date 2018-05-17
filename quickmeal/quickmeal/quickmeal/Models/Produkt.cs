@@ -17,12 +17,19 @@ namespace quickmeal.Models
         [NotNull, Column("Nazwa")]
         public string Nazwa { get; set; }
 
+        [Column("Gramatura")]
+        public string Gramatura { get; set; }
+
         [OneToMany]
         public List<Skladnik> Skladniki { get; set; }
 
-        public Produkt(string nazwa)
+        [OneToOne]
+        public Lodowka Posiada { get; set; }
+
+        public Produkt(string nazwa, string gramatura)
         {
             Nazwa = nazwa;
+            Gramatura = gramatura;
             Skladniki = new List<Skladnik>();
         }
 

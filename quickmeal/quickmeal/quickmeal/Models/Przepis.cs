@@ -30,6 +30,9 @@ namespace quickmeal.Models
         [OneToMany]
         public List<Skladnik> Zawiera { get; set; }
 
+        [OneToOne]
+        public Ulubiony ulubiony { get; set; }
+
         public Przepis(string nazwa, string opis, int czas, string zdjecie)
         {
             Nazwa = nazwa;

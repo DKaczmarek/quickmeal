@@ -28,23 +28,23 @@ namespace quickmeal
             Typ kolacja = App.TypRepo.AddTyp("Deser");
 
             /* Produkty */
-            Produkt ziemniaki = App.ProduktRepo.AddProdukt("Ziemniaki");
-            Produkt maka_pszenna = App.ProduktRepo.AddProdukt("Mąka pszenna");
-            Produkt maka_ziemniaczana = App.ProduktRepo.AddProdukt("Mąka ziemniaczana");
-            Produkt jajka = App.ProduktRepo.AddProdukt("Jajka");
-            Produkt sol = App.ProduktRepo.AddProdukt("Sól");
-            Produkt banan = App.ProduktRepo.AddProdukt("Banan");
-            Produkt truskawka = App.ProduktRepo.AddProdukt("Truskawka");
-            Produkt platki_czekoladowe = App.ProduktRepo.AddProdukt("Płatki czekoladowe");
-            Produkt mleko = App.ProduktRepo.AddProdukt("Mleko");
-            Produkt ananas = App.ProduktRepo.AddProdukt("Ananas");
-            Produkt cukier = App.ProduktRepo.AddProdukt("Cukier");
-            Produkt cebula = App.ProduktRepo.AddProdukt("Cebula");
-            Produkt kurczak_filet = App.ProduktRepo.AddProdukt("Kurczak-filet");
-            Produkt brokul = App.ProduktRepo.AddProdukt("Brokuł");
-            Produkt smietanka_kremowka = App.ProduktRepo.AddProdukt("Śmietanka kremówka");
-            Produkt makaron = App.ProduktRepo.AddProdukt("Makaron");
-            Produkt olej = App.ProduktRepo.AddProdukt("Olej");
+            Produkt ziemniaki = App.ProduktRepo.AddProdukt("Ziemniaki", "g");
+            Produkt maka_pszenna = App.ProduktRepo.AddProdukt("Mąka pszenna", "g");
+            Produkt maka_ziemniaczana = App.ProduktRepo.AddProdukt("Mąka ziemniaczana", "g");
+            Produkt jajka = App.ProduktRepo.AddProdukt("Jajka", "sztuk");
+            Produkt sol = App.ProduktRepo.AddProdukt("Sól", "g");
+            Produkt banan = App.ProduktRepo.AddProdukt("Banan", "sztuk");
+            Produkt truskawka = App.ProduktRepo.AddProdukt("Truskawka", "sztuk");
+            Produkt platki_czekoladowe = App.ProduktRepo.AddProdukt("Płatki czekoladowe", "g");
+            Produkt mleko = App.ProduktRepo.AddProdukt("Mleko", "ml");
+            Produkt ananas = App.ProduktRepo.AddProdukt("Ananas", "sztuk");
+            Produkt cukier = App.ProduktRepo.AddProdukt("Cukier", "g");
+            Produkt cebula = App.ProduktRepo.AddProdukt("Cebula", "sztuk");
+            Produkt kurczak_filet = App.ProduktRepo.AddProdukt("Kurczak-filet", "sztuk");
+            Produkt brokul = App.ProduktRepo.AddProdukt("Brokuł", "sztuk");
+            Produkt smietanka_kremowka = App.ProduktRepo.AddProdukt("Śmietanka kremówka", "g");
+            Produkt makaron = App.ProduktRepo.AddProdukt("Makaron", "g");
+            Produkt olej = App.ProduktRepo.AddProdukt("Olej", "lyzki");
 
             /* Kategorie */
             Kategoria warzywa = App.KategoriaRepo.AddKategoria("Warzywa");
@@ -97,25 +97,25 @@ namespace quickmeal
                 30,
                 "https://static.gotujmy.pl/ZDJECIE_PRZEPISU_ETAP/kopytka-z-maka-kukurydziana-433153.jpg");
 
-            Skladnik skladnikiKopytek1 = App.SkladnikRepo.AddSkladnik(500, "g");
+            Skladnik skladnikiKopytek1 = App.SkladnikRepo.AddSkladnik(500);
             kopytka.Zawiera.Add(skladnikiKopytek1);
             App.PrzepisRepo.Update(kopytka);
             ziemniaki.Skladniki.Add(skladnikiKopytek1);
             App.ProduktRepo.Update(ziemniaki);
 
-            Skladnik skladnikiKopytek2 = App.SkladnikRepo.AddSkladnik(100, "g");
+            Skladnik skladnikiKopytek2 = App.SkladnikRepo.AddSkladnik(100);
             kopytka.Zawiera.Add(skladnikiKopytek2);
             App.PrzepisRepo.Update(kopytka);
             maka_pszenna.Skladniki.Add(skladnikiKopytek2);
             App.ProduktRepo.Update(maka_pszenna);
 
-            Skladnik skladnikiKopytek3 = App.SkladnikRepo.AddSkladnik(1, "sztuk");
+            Skladnik skladnikiKopytek3 = App.SkladnikRepo.AddSkladnik(1);
             kopytka.Zawiera.Add(skladnikiKopytek3);
             App.PrzepisRepo.Update(kopytka);
             jajka.Skladniki.Add(skladnikiKopytek3);
             App.ProduktRepo.Update(jajka);
 
-            Skladnik skladnikiKopytek4 = App.SkladnikRepo.AddSkladnik(10, "g");
+            Skladnik skladnikiKopytek4 = App.SkladnikRepo.AddSkladnik(10);
             kopytka.Zawiera.Add(skladnikiKopytek4);
             App.PrzepisRepo.Update(kopytka);
             sol.Skladniki.Add(skladnikiKopytek4);
@@ -127,13 +127,13 @@ namespace quickmeal
                 2,
                 "http://www.prowadzedom.pl/wp-content/uploads/2014/10/kulki-czekoladowe.gif");
 
-            Skladnik skladnikiPlatekCzekoladowych1 = App.SkladnikRepo.AddSkladnik(250, "g");
+            Skladnik skladnikiPlatekCzekoladowych1 = App.SkladnikRepo.AddSkladnik(250);
             platkiCzekoladowe.Zawiera.Add(skladnikiPlatekCzekoladowych1);
             App.PrzepisRepo.Update(platkiCzekoladowe);
             platki_czekoladowe.Skladniki.Add(skladnikiPlatekCzekoladowych1);
             App.ProduktRepo.Update(platki_czekoladowe);
 
-            Skladnik skladnikiPlatekCzekoladowych2 = App.SkladnikRepo.AddSkladnik(250, "ml");
+            Skladnik skladnikiPlatekCzekoladowych2 = App.SkladnikRepo.AddSkladnik(250);
             platkiCzekoladowe.Zawiera.Add(skladnikiPlatekCzekoladowych2);
             App.PrzepisRepo.Update(platkiCzekoladowe);
             mleko.Skladniki.Add(skladnikiPlatekCzekoladowych2);
@@ -152,37 +152,37 @@ namespace quickmeal
                 50,
                 "https://www.winiary.pl/image.ashx/zdjecie.jpg?fileID=75055&width=1400&height=1400&quality=84&bg=0&resize=0");
 
-            Skladnik s = App.SkladnikRepo.AddSkladnik(1, "sztuk");
+            Skladnik s = App.SkladnikRepo.AddSkladnik(1);
             mzkwss.Zawiera.Add(s);
             App.PrzepisRepo.Update(mzkwss);
             cebula.Skladniki.Add(s);
             App.ProduktRepo.Update(cebula);
 
-            s = App.SkladnikRepo.AddSkladnik(2, "sztuk");
+            s = App.SkladnikRepo.AddSkladnik(2);
             mzkwss.Zawiera.Add(s);
             App.PrzepisRepo.Update(mzkwss);
             kurczak_filet.Skladniki.Add(s);
             App.ProduktRepo.Update(kurczak_filet);
 
-            Skladnik s2 = App.SkladnikRepo.AddSkladnik(1, "sztuk");
+            Skladnik s2 = App.SkladnikRepo.AddSkladnik(1);
             mzkwss.Zawiera.Add(s2 );
             App.PrzepisRepo.Update(mzkwss);
             brokul.Skladniki.Add(s2);
             App.ProduktRepo.Update(brokul);
 
-            Skladnik s3 = App.SkladnikRepo.AddSkladnik(150, "g");
+            Skladnik s3 = App.SkladnikRepo.AddSkladnik(150);
             mzkwss.Zawiera.Add(s3);
             App.PrzepisRepo.Update(mzkwss);
             smietanka_kremowka.Skladniki.Add(s3);
             App.ProduktRepo.Update(smietanka_kremowka);
 
-            Skladnik s4 = App.SkladnikRepo.AddSkladnik(250, "g");
+            Skladnik s4 = App.SkladnikRepo.AddSkladnik(250);
             mzkwss.Zawiera.Add(s4);
             App.PrzepisRepo.Update(mzkwss);
             makaron.Skladniki.Add(s4);
             App.ProduktRepo.Update(makaron);
 
-            Skladnik s5 = App.SkladnikRepo.AddSkladnik(2, "łyżki");
+            Skladnik s5 = App.SkladnikRepo.AddSkladnik(2);
             mzkwss.Zawiera.Add(s5);
             App.PrzepisRepo.Update(mzkwss);
             olej.Skladniki.Add(s5);

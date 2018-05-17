@@ -35,6 +35,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)FridgePage.xaml.cs">
       <DependentUpon>FridgePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Lodowka.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Ulubiony.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MyDataSource\PrzepisData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Repositories\KategoriaRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
@@ -51,6 +53,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ProductPreview.xaml.cs">
       <DependentUpon>ProductPreview.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Repositories\LodowkaRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Repositories\ProduktRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Repositories\PrzepisRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RecipePreview.xaml.cs">
@@ -59,6 +62,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Repositories\SkladnikRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Repositories\TypRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Repositories\UlubionyRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProductViewModels.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PrzepisViewModels.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RecipeViewModels.cs" />
@@ -80,8 +84,5 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Repositories\" />
   </ItemGroup>
 </Project>

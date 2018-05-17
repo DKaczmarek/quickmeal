@@ -24,9 +24,9 @@ namespace quickmeal
 
         }
 
-        public Produkt AddProdukt(string nazwa)
+        public Produkt AddProdukt(string nazwa, string gramatura)
         {
-            Produkt pro = new Produkt(nazwa);
+            Produkt pro = new Produkt(nazwa, gramatura);
             dbConn.Insert(pro);
             return pro;
         }

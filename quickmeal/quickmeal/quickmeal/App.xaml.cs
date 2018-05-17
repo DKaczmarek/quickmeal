@@ -7,6 +7,7 @@ using Android.Views;
 using Xamarin.Forms;
 using quickmeal.Models;
 using quickmeal.Constants;
+using quickmeal.Repositories;
 namespace quickmeal
 {
 	public partial class App : Application
@@ -17,6 +18,8 @@ namespace quickmeal
         public static TypRepository TypRepo { get; set; }
         public static ProduktRepository ProduktRepo { get; set; }
         public static SkladnikRepository SkladnikRepo { get; set; }
+        public static LodowkaRepository LodowkaRepo { get; set; }
+        public static UlubionyRepository UlubionyRepo { get; set; }
         public App (string dbPath, ISQLitePlatform sqlitePlatform)
 		{
 
@@ -26,6 +29,8 @@ namespace quickmeal
             TypRepo = new TypRepository(sqlitePlatform, dbPath);
             ProduktRepo = new ProduktRepository(sqlitePlatform, dbPath);
             SkladnikRepo = new SkladnikRepository(sqlitePlatform, dbPath);
+            LodowkaRepo = new LodowkaRepository(sqlitePlatform, dbPath);
+            UlubionyRepo = new UlubionyRepository(sqlitePlatform, dbPath);
             if (!Constant.DatabaseExist)
             {
                 FillDatabase fill = new FillDatabase(sqlitePlatform, dbPath);

@@ -49,7 +49,7 @@ namespace quickmeal
             {
                 if (skladnik.Id_Produktu == product.Id)
                 {
-                    ProductType.Text = skladnik.Gramatura;
+                    ProductType.Text = product.Gramatura;
                     ProductAmount.Text = skladnik.Ilosc.ToString();
                 }
             }

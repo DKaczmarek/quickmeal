@@ -24,29 +24,11 @@ namespace quickmeal
 
         }
 
-        public Skladnik AddSkladnik(string gramatura)
-        {
-            Skladnik skl = new Skladnik(gramatura);
-            dbConn.Insert(skl);
-            return skl;
-        }
-
         public Skladnik AddSkladnik(int ilosc)
         {
             Skladnik skl = new Skladnik(ilosc);
             dbConn.Insert(skl);
             return skl;
-        }
-
-        public Skladnik AddSkladnik(int ilosc, string gramatura)
-        {
-            Skladnik sk1 = new Skladnik
-            {
-                Ilosc = ilosc,
-                Gramatura = gramatura
-            };
-            dbConn.Insert(sk1);
-            return sk1;
         }
 
         public List<Skladnik> GetAllSkladnik()

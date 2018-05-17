@@ -11,9 +11,6 @@ namespace quickmeal.Models
         [PrimaryKey, AutoIncrement, NotNull, Column("Id_Skladniku")]
         public int Id { get; set; }
 
-        [Column("Gramatura")]
-        public string Gramatura { get; set; }
-
         [Column("Ilosc")]
         public int Ilosc { get; set; }
 
@@ -23,12 +20,6 @@ namespace quickmeal.Models
         [ForeignKey(typeof(Produkt)), Column("Id_Produktu")]
         public int Id_Produktu { get; set; }
 
-
-
-        public Skladnik(string gramatura)
-        {
-            Gramatura = gramatura;
-        }
 
         public Skladnik(int ilosc)
         {
