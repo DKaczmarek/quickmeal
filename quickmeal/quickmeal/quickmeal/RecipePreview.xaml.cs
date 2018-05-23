@@ -80,7 +80,7 @@ namespace quickmeal
             {
                 string name = temp.Where(o => o.Id == s.Id_Produktu).FirstOrDefault().Nazwa;
                 int ilosc = s.Ilosc;
-                string gram = temp.Where(o => o.Id == s.Id_Produktu).FirstOrDefault().Gramatura; 
+                string gram = temp.Where(o => o.Id == s.Id_Produktu).FirstOrDefault().Gramatura;
 
                 IngredientItems.Add(new IngredientItem
                 {

@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace quickmeal.ViewModels
 {
@@ -18,10 +21,12 @@ namespace quickmeal.ViewModels
         {
             Recipes = new ObservableCollection<Models.Przepis>();
             MyDataSource.PrzepisData _context = new MyDataSource.PrzepisData();
+
             foreach (var recipe in _context.Recipes)
             {
                 Recipes.Add(recipe);
-            } 
+            }
         }
+
     }
 }

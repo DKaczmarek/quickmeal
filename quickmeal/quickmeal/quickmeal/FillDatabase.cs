@@ -45,6 +45,9 @@ namespace quickmeal
             Produkt smietanka_kremowka = App.ProduktRepo.AddProdukt("Śmietanka kremówka", "g");
             Produkt makaron = App.ProduktRepo.AddProdukt("Makaron", "g");
             Produkt olej = App.ProduktRepo.AddProdukt("Olej", "lyzki");
+            Produkt szparag = App.ProduktRepo.AddProdukt("Szparagi", "g");
+            Produkt maslo = App.ProduktRepo.AddProdukt("Masło", "łyżki");
+            Produkt szpinak = App.ProduktRepo.AddProdukt("Szpinak", "g");
 
             /* Kategorie */
             Kategoria warzywa = App.KategoriaRepo.AddKategoria("Warzywa");
@@ -62,7 +65,7 @@ namespace quickmeal
             Kategoria dodatki = App.KategoriaRepo.AddKategoria("Dodatki");
 
             /* Przypisanie produktow do kategorii */
-            warzywa.Produkty = new List<Produkt> { ziemniaki, brokul, cebula };
+            warzywa.Produkty = new List<Produkt> { ziemniaki, brokul, cebula, szparag };
             App.KategoriaRepo.Update(warzywa);
 
             owoce.Produkty = new List<Produkt> { banan, truskawka, ananas };
@@ -83,7 +86,7 @@ namespace quickmeal
             mieso.Produkty = new List<Produkt> { kurczak_filet };
             App.KategoriaRepo.Update(mieso);
 
-            Tluszcze.Produkty = new List<Produkt> { olej };
+            Tluszcze.Produkty = new List<Produkt> { olej, maslo };
             App.KategoriaRepo.Update(Tluszcze);
 
             /* Przepisy */
@@ -120,6 +123,12 @@ namespace quickmeal
             App.PrzepisRepo.Update(kopytka);
             sol.Skladniki.Add(skladnikiKopytek4);
             App.ProduktRepo.Update(sol);
+
+            Ulubiony ul_mzkwss = App.UlubionyRepo.AddUlubiony();
+            ul_mzkwss.Id_Przepisu = kopytka.Id;
+            App.UlubionyRepo.Update(ul_mzkwss);
+            kopytka.ulubiony = ul_mzkwss;
+            App.PrzepisRepo.Update(kopytka);
 
             Przepis platkiCzekoladowe = App.PrzepisRepo.AddPrzepis(
                 "Płatki z mlekiem", 
@@ -188,8 +197,67 @@ namespace quickmeal
             olej.Skladniki.Add(s5);
             App.ProduktRepo.Update(olej);
 
+            ul_mzkwss = App.UlubionyRepo.AddUlubiony();
+            ul_mzkwss.Id_Przepisu = mzkwss.Id;
+            App.UlubionyRepo.Update(ul_mzkwss);
+            mzkwss.ulubiony = ul_mzkwss;
+            App.PrzepisRepo.Update(mzkwss);
+
+            Przepis mzkis = App.PrzepisRepo.AddPrzepis(
+                "Makaron z kurczakiem i szparagami",
+                "1. Świeże szparagi oczyść i pokrój w 2 cm kawałki.\n\n" +
+                "2. Filet pokrój w kostkę a szpinak drobno\n\n" +
+                "3. Masło rozgrzej na patelni, smaż na nim przez 10 minut szparagi i mięso.\n\n" +
+                "4. Opcjonalne przyprawy wymieszaj ze śmietanką i 200 ml wody - dodaj na patelnię i duś całość przez 5 minut. Dodaj szpinak.\n\n" +
+                "5. Makaron ugotuj w dużej ilości posolonej wody.\n\n" +
+                "6. Makaron połącz z zawartością patelni, podawaj zaraz po przygotowaniu.\n\n",
+                55,
+                "https://www.winiary.pl/image.ashx/zdjecie.jpg?fileID=210327&width=1400&height=1400&quality=84&bg=0&resize=0");
+
+            s = App.SkladnikRepo.AddSkladnik(200);
+            mzkis.Zawiera.Add(s);
+            App.PrzepisRepo.Update(mzkis);
+            smietanka_kremowka.Skladniki.Add(s);
+            App.ProduktRepo.Update(smietanka_kremowka);
+
+            s = App.SkladnikRepo.AddSkladnik(400);
+            mzkis.Zawiera.Add(s);
+            App.PrzepisRepo.Update(mzkis);
+            szparag.Skladniki.Add(s);
+            App.ProduktRepo.Update(szparag);
+
+            s = App.SkladnikRepo.AddSkladnik(1);
+            mzkis.Zawiera.Add(s);
+            App.PrzepisRepo.Update(mzkis);
+            kurczak_filet.Skladniki.Add(s);
+            App.ProduktRepo.Update(kurczak_filet);
+
+            s = App.SkladnikRepo.AddSkladnik(3);
+            mzkis.Zawiera.Add(s);
+            App.PrzepisRepo.Update(mzkis);
+            maslo.Skladniki.Add(s);
+            App.ProduktRepo.Update(maslo);
+
+            s = App.SkladnikRepo.AddSkladnik(300);
+            mzkis.Zawiera.Add(s);
+            App.PrzepisRepo.Update(mzkis);
+            makaron.Skladniki.Add(s);
+            App.ProduktRepo.Update(makaron);
+
+            s = App.SkladnikRepo.AddSkladnik(50);
+            mzkis.Zawiera.Add(s);
+            App.PrzepisRepo.Update(mzkis);
+            szpinak.Skladniki.Add(s);
+            App.ProduktRepo.Update(szpinak);
+
+            Ulubiony ul = App.UlubionyRepo.AddUlubiony();
+            ul.Id_Przepisu = mzkis.Id;
+            App.UlubionyRepo.Update(ul);
+            mzkis.ulubiony = ul;
+            App.PrzepisRepo.Update(mzkis);
+
             /* Przypisanie przepisow do typów */
-            obiad.Przepisy = new List<Przepis> { kopytka, mzkwss };
+            obiad.Przepisy = new List<Przepis> { kopytka, mzkwss, mzkis };
             App.TypRepo.Update(obiad);
 
             sniadanie.Przepisy = new List<Przepis> { platkiCzekoladowe };

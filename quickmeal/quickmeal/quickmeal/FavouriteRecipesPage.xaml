@@ -42,9 +42,9 @@
 
                         <ViewCell.ContextActions>
                             <MenuItem Clicked="OnMore" CommandParameter="{Binding .}"
-                                Text="More" />
+                                Text="Więcej" />
                             <MenuItem Clicked="OnDelete" CommandParameter="{Binding .}"
-                                Text="Delete" IsDestructive="True" />
+                                Text="Usuń" IsDestructive="True" />
                         </ViewCell.ContextActions>
 
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="1">

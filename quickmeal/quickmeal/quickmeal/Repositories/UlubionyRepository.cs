@@ -24,11 +24,24 @@ namespace quickmeal.Repositories
 
         }
 
-        public List<Ulubiony> GetAllSkladnik()
+        public Ulubiony AddUlubiony()
+        {
+            Ulubiony ulubiony = new Ulubiony();
+            dbConn.Insert(ulubiony);
+            return ulubiony;
+        }
+
+        public List<Ulubiony> GetAllUlubione()
         {
             var table = dbConn.GetAllWithChildren<Ulubiony>().ToList();
             return table;
         }
+
+        public void Remove(Ulubiony ulubiony)
+        {
+            dbConn.Delete(ulubiony);
+        }
+
         public void Update(Ulubiony ulubiony)
         {
             dbConn.UpdateWithChildren(ulubiony);
