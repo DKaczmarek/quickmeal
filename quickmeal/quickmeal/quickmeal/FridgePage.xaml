@@ -8,11 +8,60 @@
     <StackLayout BackgroundColor="#f2f2f2">
         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="#f2f2f2">
             <Entry Placeholder="Nazwa produktu" HorizontalOptions="FillAndExpand" Margin="5" x:Name="productEntry" PlaceholderColor="#8c8c8c" TextColor="#333333" />
-            <Button Text="Dodaj" HorizontalOptions="End"  Margin="5" BorderRadius="10"
-                    Clicked="Add_Clicked" TextColor="White" BackgroundColor="#5cd65c"/>
+
         </StackLayout>
 
+        
         <ListView ItemsSource="{Binding Products}"
+                  IsVisible="False"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="None"
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand"
+                  x:Name="ProductList">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+                        <StackLayout Margin="6,3,6,3" BackgroundColor="#cccccc">
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+
+                                <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Text="{Binding Nazwa}"
+                                    HorizontalOptions="FillAndExpand"  Margin="6,0,0,0" TextColor="#1a1a1a" 
+                                    FontSize="Medium"/>
+
+                                <Button Grid.Column="3" Grid.Row="0" Grid.RowSpan="2" Margin="8,5,0,5"  HorizontalOptions="End"  BorderRadius="20" TextColor="White" BackgroundColor="#5cd65c" 
+                                    Clicked="Add_Clicked" Image="ic_add_white_24dp.png" />
+                                
+                                <StackLayout Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal">
+
+                                    <Label Text="{Binding Gramatura}"
+                                   Margin="0,0,0,0" TextColor="#4d4d4d" 
+                                   FontSize="Small"/>
+                                </StackLayout>
+
+                            </Grid>
+
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+        <ListView ItemsSource="{Binding Lodowka}"
                   HasUnevenRows="True"
                   SeparatorVisibility="None"
                   HorizontalOptions="FillAndExpand"
@@ -48,13 +97,11 @@
                                     Clicked="Remove_Clicked" Image="ic_delete_white_24dp.png"/>
 
                                 <StackLayout Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal">
-                                    <Label  x:Name="Nazwa_kategorii"  Text="{Binding Nazwa_kategorii}"
-                                   Margin="6,0,0,0" TextColor="#4d4d4d" 
-                                   FontSize="Small"/>
-                                    <Label  Text="{Binding Amount}"
+                        
+                                    <Label  Text="{Binding Ilosc}"
                                     Margin="1,0,0,0" TextColor="#4d4d4d" 
                                     FontSize="Small"/>
-                                    <Label Text="{Binding Type}"
+                                    <Label Text="{Binding Gramatura}"
                                    Margin="0,0,0,0" TextColor="#4d4d4d" 
                                    FontSize="Small"/>
                                 </StackLayout>
@@ -66,6 +113,9 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
+
+
+
+
     </StackLayout>
 </ContentPage>

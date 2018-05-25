@@ -37,6 +37,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\Lodowka.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Ulubiony.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MyDataSource\LodowkaData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MyDataSource\PrzepisData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Repositories\KategoriaRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
@@ -63,6 +64,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Repositories\SkladnikRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Repositories\TypRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Repositories\UlubionyRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LodowkaViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProductViewModels.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PrzepisViewModels.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RecipeViewModels.cs" />
