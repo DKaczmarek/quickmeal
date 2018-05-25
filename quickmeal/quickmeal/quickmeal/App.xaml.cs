@@ -20,6 +20,7 @@ namespace quickmeal
         public static SkladnikRepository SkladnikRepo { get; set; }
         public static LodowkaRepository LodowkaRepo { get; set; }
         public static UlubionyRepository UlubionyRepo { get; set; }
+        public static Algorithm Algorytm { get; set; }
         public App (string dbPath, ISQLitePlatform sqlitePlatform)
 		{
 
@@ -31,6 +32,7 @@ namespace quickmeal
             SkladnikRepo = new SkladnikRepository(sqlitePlatform, dbPath);
             LodowkaRepo = new LodowkaRepository(sqlitePlatform, dbPath);
             UlubionyRepo = new UlubionyRepository(sqlitePlatform, dbPath);
+            Algorytm = new Algorithm(sqlitePlatform, dbPath);
             if (!Constant.DatabaseExist)
             {
                 FillDatabase fill = new FillDatabase(sqlitePlatform, dbPath);

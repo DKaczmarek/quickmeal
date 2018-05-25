@@ -83,6 +83,7 @@ namespace quickmeal
 
             if (BreakfastClicked)
             {
+                
                 var lista2 = App.PrzepisRepo.GetAllPrzepis();
                 var lista = App.PrzepisRepo.GetSniadaniaPrzepis();
                 string przepisy = String.Empty;
