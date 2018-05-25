@@ -41,7 +41,7 @@ namespace quickmeal
                 }
             }
 
-            Entry ProductAmount = this.FindByName<Entry>("ProductAmount");
+            //Entry ProductAmount = this.FindByName<Entry>("ProductAmount");
             Label ProductType = this.FindByName<Label>("ProductType");
 
             List<Skladnik> ingredients = App.SkladnikRepo.GetAllSkladnik(); //Pobranie wszystkich skladnikow
@@ -50,25 +50,29 @@ namespace quickmeal
                 if (skladnik.Id_Produktu == product.Id)
                 {
                     ProductType.Text = product.Gramatura;
-                    ProductAmount.Text = skladnik.Ilosc.ToString();
+                    //ProductAmount.Text = skladnik.Ilosc.ToString();
                 }
             }
         }
         private void SaveClicked(object sender, EventArgs e)
         {
             var button = sender as Button;
-            var vm = BindingContext as ViewModels.ProductViewModels;
-            vm?.RemoveCommand.Execute(product);
-
-            /// NALEŻY ZROBIĆ ZAPISYWANIE PRODUKTÓW
+            var vm = BindingContext as ViewModels.LodowkaViewModel;
+      
+            
             Entry ProductAmount = this.FindByName<Entry>("ProductAmount");
-            //product.Skladniki = Convert.ToInt32(ProductAmount.Text);
-            vm?.InsertCommand.Execute(product);
+            if (ProductAmount.Text == null || ProductAmount.Text == "" || ProductAmount.Text == "0") ProductAmount.Text = "1";
+            int ilosc = Convert.ToInt32(ProductAmount.Text);
+            product.Ilosc = ilosc;
 
+            Lodowka lodowka = App.LodowkaRepo.AddLodowka(product.Ilosc);
+            lodowka.Id_Produktu = product.Id;
+            lodowka.Nazwa = product.Nazwa;
+            lodowka.Gramatura = product.Gramatura;
+
+            App.LodowkaRepo.Update(lodowka);
 
             Navigation.RemovePage(this);
-            //Navigation.RemovePage(Navigation.NavigationStack.LastOrDefault());
-
         }
     }
 }

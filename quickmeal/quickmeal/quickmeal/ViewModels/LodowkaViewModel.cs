@@ -4,7 +4,7 @@ using System.Text;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Xamarin.Forms;
-
+using quickmeal.Models;
 namespace quickmeal.ViewModels
 {
     public class LodowkaViewModel
@@ -27,15 +27,9 @@ namespace quickmeal.ViewModels
 
             Lodowka = new ObservableCollection<Models.Lodowka>(Lodowka.OrderBy(i => i.Id_Produktu));
         }
-        public Command<Models.Lodowka> InsertCommand
+        public void RefreshLodowka()
         {
-            get
-            {
-                return new Command<Models.Lodowka>((lodowka) =>
-                {
-                    Lodowka.Insert(0, lodowka);
-                });
-            }
+            Lodowka = new ObservableCollection<Models.Lodowka>(Lodowka.OrderBy(i => i.Id_Produktu));
         }
 
         public Command<Models.Lodowka> RemoveCommand
@@ -48,7 +42,6 @@ namespace quickmeal.ViewModels
                 });
             }
         }
-
         public Command<Models.Lodowka> UpdateCommand
         {
             get

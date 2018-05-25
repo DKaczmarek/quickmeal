@@ -57,17 +57,9 @@ namespace quickmeal
         private void Add_Clicked(object sender, EventArgs e)
         {
             //Po kliknięciu dodaj, powinna otworzyć się zakładka ProductPreview
-            Models.Produkt product = new Models.Produkt();
-            var productName = productEntry.Text;
-            product.Nazwa = productName;
-
             var button = sender as Button;
-            var vm = BindingContext as ViewModels.ProductViewModels;
-
-            if (!string.IsNullOrEmpty(productName))
-            {
-                vm?.InsertCommand.Execute(product);
-            }
+            var wybrany_produkt = button?.BindingContext as Models.Produkt;
+            Navigation.PushAsync(new ProductPreview(wybrany_produkt));
         }
 
         private void SearchBarEventConnect()

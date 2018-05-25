@@ -42,7 +42,7 @@
                                     HorizontalOptions="FillAndExpand"  Margin="6,0,0,0" TextColor="#1a1a1a" 
                                     FontSize="Medium"/>
 
-                                <Button Grid.Column="3" Grid.Row="0" Grid.RowSpan="2" Margin="8,5,0,5"  HorizontalOptions="End"  BorderRadius="20" TextColor="White" BackgroundColor="#5cd65c" 
+                                <Button Grid.Column="4" Grid.Row="0" Grid.RowSpan="2" Margin="8,5,0,5"  HorizontalOptions="End"  BorderRadius="20" TextColor="White" BackgroundColor="#5cd65c" 
                                     Clicked="Add_Clicked" Image="ic_add_white_24dp.png" />
                                 
                                 <StackLayout Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal">
@@ -60,7 +60,9 @@
             </ListView.ItemTemplate>
         </ListView>
 
-
+        <Label Text="Twoje produkty:" HorizontalOptions="FillAndExpand"  Margin="6,0,0,0" TextColor="#1a1a1a" 
+                                    FontSize="Medium"/>
+        
         <ListView ItemsSource="{Binding Lodowka}"
                   HasUnevenRows="True"
                   SeparatorVisibility="None"
