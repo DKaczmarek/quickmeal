@@ -89,6 +89,18 @@ namespace quickmeal
             Tluszcze.Produkty = new List<Produkt> { olej, maslo };
             App.KategoriaRepo.Update(Tluszcze);
 
+            /* Lodowka */
+            Lodowka l_ziemniaki = App.LodowkaRepo.AddLodowka(5);
+            l_ziemniaki.Id_Produktu = ziemniaki.Id;
+            l_ziemniaki.Wypelnij_Dane();
+            App.LodowkaRepo.Update(l_ziemniaki);
+
+            Lodowka l_jajka = App.LodowkaRepo.AddLodowka(2);
+            l_jajka.Id_Produktu = jajka.Id;
+            l_jajka.Wypelnij_Dane();
+            App.LodowkaRepo.Update(l_jajka);
+
+
             /* Przepisy */
             Przepis kopytka = App.PrzepisRepo.AddPrzepis(
                 "Kopytka",

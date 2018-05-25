@@ -36,6 +36,7 @@ namespace quickmeal.ViewModels
             {
                 return new Command<Models.Produkt>((product) =>
                 {
+
                     Products.Insert(0, product);
                 });
             }

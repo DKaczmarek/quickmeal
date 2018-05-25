@@ -26,6 +26,7 @@ namespace quickmeal.Models
         [OneToOne]
         public Lodowka Posiada { get; set; }
 
+        public int Ilosc;
         public Produkt(string nazwa, string gramatura)
         {
             Nazwa = nazwa;
