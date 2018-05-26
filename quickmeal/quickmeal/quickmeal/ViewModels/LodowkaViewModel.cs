@@ -27,32 +27,19 @@ namespace quickmeal.ViewModels
 
             Lodowka = new ObservableCollection<Models.Lodowka>(Lodowka.OrderBy(i => i.Id_Produktu));
         }
-        public void RefreshLodowka()
+
+        public Command<Models.Lodowka> RefreshLodowka
         {
-            Lodowka = new ObservableCollection<Models.Lodowka>(Lodowka.OrderBy(i => i.Id_Produktu));
+            get
+            {
+                return new Command<Models.Lodowka>((lodowka) =>
+                {
+                    Lodowka = new ObservableCollection<Models.Lodowka>(Lodowka.OrderBy(i => i.Id_Produktu));
+                });
+            }
         }
 
-        public Command<Models.Lodowka> RemoveCommand
-        {
-            get
-            {
-                return new Command<Models.Lodowka>((lodowka) =>
-                {
-                    Lodowka.Remove(lodowka);
-                });
-            }
-        }
-        public Command<Models.Lodowka> UpdateCommand
-        {
-            get
-            {
-                return new Command<Models.Lodowka>((lodowka) =>
-                {
-                    Lodowka.Remove(lodowka);
-                    Lodowka.Insert(Lodowka.IndexOf(lodowka), lodowka);
-                });
-            }
-        }
+      
 
     }
 }
