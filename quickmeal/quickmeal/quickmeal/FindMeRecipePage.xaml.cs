@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using quickmeal.Models;
 using quickmeal.Constants;
 using quickmeal.Droid;
+using SQLite.Net.Interop;
+using System.Data.SqlClient;
+using SQLite;
+using SQLiteNetExtensions.Extensions;
+
+
 namespace quickmeal
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -25,8 +31,8 @@ namespace quickmeal
             BreakfastClicked = false;
             DinnerClicked = false;
             DessertClicked = false;
-            
-		}
+          
+        }
 
         private void BreakfastButton_Clicked(object sender, EventArgs e)
         {
@@ -81,11 +87,15 @@ namespace quickmeal
             else
                 await DisplayAlert("Hej!", "Nie wybrałeś czego szukasz.", "OK");
 
+            Typ ty = App.Algorytm.SzukajTypu("Śniadanie");
+            Typ ty2 = App.Algorytm.SzukajTypu("Obiad");
+
             if (BreakfastClicked)
             {
                 
                 var lista2 = App.PrzepisRepo.GetAllPrzepis();
                 var lista = App.PrzepisRepo.GetSniadaniaPrzepis();
+                DataTable dt = App.Algorytm.SzukajPrzepis(ty, ty2);
                 string przepisy = String.Empty;
                 foreach (var x in lista)
                 {
