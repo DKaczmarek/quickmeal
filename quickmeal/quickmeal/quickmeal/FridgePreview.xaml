@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:quickmeal"
-             x:Class="quickmeal.ProductPreview"
+             x:Class="quickmeal.FridgePreview"
              x:Name="TitleName">
 
     <ContentPage.Padding>
@@ -13,7 +13,7 @@
 
     <ScrollView>
         <StackLayout Orientation="Vertical" BackgroundColor="#f2f2f2">
-            
+
             <StackLayout Orientation="Horizontal">
                 <Label Text="Nazwa produktu:"
                    TextColor="#4d4d4d"
@@ -41,20 +41,20 @@
                    TextColor="#4d4d4d"
                    FontSize="25"
                    Margin = "15,10,2,15"/>
-                
+
                 <Entry Placeholder="ilość" HorizontalOptions="FillAndExpand" FontSize="25" 
                    x:Name="ProductAmount" PlaceholderColor="#8c8c8c" 
                    TextColor="#333333" Keyboard="Numeric" 
                    Margin = "2,0,2,15"/>
-                
+
                 <Label x:Name="ProductType"
                    TextColor="#4d4d4d"
                    FontSize="25"
                    Margin = "2,10,15,15"/>
             </StackLayout>
-            <Button Text="Dodaj" Margin="15" BorderRadius="10" BackgroundColor="#5cd65c" TextColor="White" Clicked="SaveClicked"/>
+            <Button Text="Zapisz" Margin="15" BorderRadius="10" BackgroundColor="#5cd65c" TextColor="White" Clicked="SaveClicked"/>
 
         </StackLayout>
     </ScrollView>
-
+    
 </ContentPage>

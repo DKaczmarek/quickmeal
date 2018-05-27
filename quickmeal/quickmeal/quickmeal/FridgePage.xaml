@@ -42,13 +42,13 @@
                                     HorizontalOptions="FillAndExpand"  Margin="6,0,0,0" TextColor="#1a1a1a" 
                                     FontSize="Medium"/>
 
-                                <Button Grid.Column="4" Grid.Row="0" Grid.RowSpan="2" Margin="8,5,0,5"  HorizontalOptions="End"  BorderRadius="20" TextColor="White" BackgroundColor="#5cd65c" 
+                                <Button Grid.Column="4" Grid.Row="0" Grid.RowSpan="2" Margin="8,5,5,5"  HorizontalOptions="End"  BorderRadius="20" TextColor="White" BackgroundColor="#5cd65c" 
                                     Clicked="Add_Clicked" Image="ic_add_white_24dp.png" />
                                 
-                                <StackLayout Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal">
+                                <StackLayout Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Orientation="Horizontal">
 
-                                    <Label Text="{Binding Gramatura}"
-                                   Margin="0,0,0,0" TextColor="#4d4d4d" 
+                                    <Label Text="{Binding kategoria_produktu}"
+                                   Margin="6,0,0,0" TextColor="#4d4d4d" 
                                    FontSize="Small"/>
                                 </StackLayout>
 
@@ -95,13 +95,13 @@
                                 <Button Grid.Column="3" Grid.Row="0" Grid.RowSpan="2" Margin="8,5,0,5"  HorizontalOptions="End"  BorderRadius="20" TextColor="White" BackgroundColor="#5cd65c" 
                                     Clicked="Edit_Clicked" Image="ic_mode_edit_white_24dp.png" />
 
-                                <Button Grid.Column="4" Grid.Row="0" Grid.RowSpan="2" Margin="0,5,0,5"  HorizontalOptions="End" BorderRadius="20" TextColor="White" BackgroundColor="PaleVioletRed"
+                                <Button Grid.Column="4" Grid.Row="0" Grid.RowSpan="2" Margin="0,5,5,5"  HorizontalOptions="End" BorderRadius="20" TextColor="White" BackgroundColor="PaleVioletRed"
                                     Clicked="Remove_Clicked" Image="ic_delete_white_24dp.png"/>
 
                                 <StackLayout Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal">
                         
                                     <Label  Text="{Binding Ilosc}"
-                                    Margin="1,0,0,0" TextColor="#4d4d4d" 
+                                    Margin="6,0,0,0" TextColor="#4d4d4d" 
                                     FontSize="Small"/>
                                     <Label Text="{Binding Gramatura}"
                                    Margin="0,0,0,0" TextColor="#4d4d4d" 

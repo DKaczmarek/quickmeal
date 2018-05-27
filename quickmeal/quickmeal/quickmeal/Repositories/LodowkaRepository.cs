@@ -35,7 +35,10 @@ namespace quickmeal.Repositories
             var table = dbConn.GetAllWithChildren<Lodowka>().ToList();
             return table;
         }
-
+        public void Remove(Lodowka lodowka)
+        {
+            dbConn.Delete(lodowka);
+        }
         public void Update(Lodowka lodowka)
         {
             dbConn.UpdateWithChildren(lodowka);
