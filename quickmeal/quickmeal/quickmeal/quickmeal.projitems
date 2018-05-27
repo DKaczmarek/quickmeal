@@ -37,6 +37,7 @@
       <DependentUpon>FridgePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\Lodowka.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Przepis_alg.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Ulubiony.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MyDataSource\LodowkaData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MyDataSource\PrzepisData.cs" />

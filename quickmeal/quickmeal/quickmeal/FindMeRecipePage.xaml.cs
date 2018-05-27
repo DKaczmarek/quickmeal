@@ -95,7 +95,7 @@ namespace quickmeal
                 
                 var lista2 = App.PrzepisRepo.GetAllPrzepis();
                 var lista = App.PrzepisRepo.GetSniadaniaPrzepis();
-                DataTable dt = App.Algorytm.SzukajPrzepis(ty, ty2);
+                List<Przepis_alg> dt = App.Algorytm.SzukajPrzepis(ty2, ty);
                 string przepisy = String.Empty;
                 foreach (var x in lista)
                 {
