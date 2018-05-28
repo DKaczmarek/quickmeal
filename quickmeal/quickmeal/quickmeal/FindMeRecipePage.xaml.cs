@@ -13,20 +13,55 @@ using SQLite.Net.Interop;
 using System.Data.SqlClient;
 using SQLite;
 using SQLiteNetExtensions.Extensions;
-
+using System.Collections.ObjectModel;
 
 namespace quickmeal
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    class PrzepisAlgData
+    {
+        public List<Przepis_alg> Recipes = new List<Przepis_alg>();
+        public PrzepisAlgData()
+        {
+            Recipes = null; ;
+        }
+
+    }
+
+    class PrzepisAlgViewModels
+    {
+        private ObservableCollection<Models.Przepis_alg> recipes;
+        public ObservableCollection<Models.Przepis_alg> Recipes
+        {
+            get { return recipes; }
+            set { recipes = value; }
+        }
+
+        public PrzepisAlgViewModels()
+        {
+            Recipes = new ObservableCollection<Models.Przepis_alg>();
+        }
+
+    }
+
+
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class FindMeRecipePage : ContentPage
 	{
         private bool BreakfastClicked;
         private bool DinnerClicked;
         private bool DessertClicked;
 
+        private ListView listView;
+        private ObservableCollection<Models.Przepis_alg> recipes;
+        private PrzepisAlgViewModels viewModels;
+
         public FindMeRecipePage ()
 		{
 			InitializeComponent ();
+
+            viewModels = new PrzepisAlgViewModels();
+
+            listView = this.FindByName<ListView>("FavRecipesList");
 
             BreakfastClicked = false;
             DinnerClicked = false;
@@ -79,29 +114,87 @@ namespace quickmeal
             }
         }
 
+        async void AddToFavourite_Clicked(object sender, EventArgs e)
+        {
+
+            await DisplayAlert("uwaga", "Dodano do ulubionych!", "OK");
+        }
+
+        private ObservableCollection<Przepis_alg> ReturnObservableCollection(List<Przepis_alg> l)
+        {
+            ObservableCollection<Przepis_alg> NewObCollection = new ObservableCollection<Przepis_alg>();
+            foreach (Przepis_alg p in l)
+                NewObCollection.Add(p);
+            return NewObCollection;
+        }
+
+        async void ShowButton_Clicked(object sender, EventArgs e)
+        {
+            object obj = listView.SelectedItem;
+            if (obj == null)
+            {
+                await DisplayAlert("Alert", "Nie wybrano żadnego przepisu.", "OK");
+            }
+            else
+            {
+                await Navigation.PushAsync(new RecipePreview(obj));
+            }
+        }
+
         private async void FindButton_Clicked(object sender, EventArgs e)
         {
-            
-            if (BreakfastClicked || DessertClicked || DinnerClicked)
-                await DisplayAlert("Alert", "Teraz powinno szukać przepisu.", "OK");
-            else
+            if (!BreakfastClicked && !DessertClicked && !DinnerClicked)
                 await DisplayAlert("Hej!", "Nie wybrałeś czego szukasz.", "OK");
-
-            Typ ty = App.Algorytm.SzukajTypu("Śniadanie");
-            Typ ty2 = App.Algorytm.SzukajTypu("Obiad");
-
-            if (BreakfastClicked)
+            else if (BreakfastClicked && !DessertClicked && !DinnerClicked)
             {
-                
-                var lista2 = App.PrzepisRepo.GetAllPrzepis();
-                var lista = App.PrzepisRepo.GetSniadaniaPrzepis();
-                List<Przepis_alg> dt = App.Algorytm.SzukajPrzepis(ty2, ty);
-                string przepisy = String.Empty;
-                foreach (var x in lista)
-                {
-                    przepisy = String.Concat(String.Concat(x.Nazwa, x.Opis), x.Zdjecie);
-                    await DisplayAlert("test", przepisy, "ok");
-                }
+                Typ typ = App.Algorytm.SzukajTypu("Śniadanie");
+
+                List<Przepis_alg> dt = App.Algorytm.SzukajPrzepis(typ);
+                dt = dt.OrderBy(o => o.Stosunek).ToList();
+
+                recipes = ReturnObservableCollection(dt);
+                viewModels.Recipes = recipes;
+                BindingContext = viewModels;
+
+                listView.ItemsSource = recipes;
+            }
+            else if (!BreakfastClicked && !DessertClicked && DinnerClicked)
+            {
+                Typ typ = App.Algorytm.SzukajTypu("Obiad");
+
+                List<Przepis_alg> dt = App.Algorytm.SzukajPrzepis(typ);
+                dt = dt.OrderBy(o => o.Stosunek).ToList();
+
+                recipes = ReturnObservableCollection(dt);
+                viewModels.Recipes = recipes;
+                BindingContext = viewModels;
+
+                listView.ItemsSource = recipes;
+            }
+            else if (BreakfastClicked && !DessertClicked && DinnerClicked)
+            {
+                Typ typ = App.Algorytm.SzukajTypu("Śniadanie");
+                Typ typ2 = App.Algorytm.SzukajTypu("Obiad");
+
+                List<Przepis_alg> dt = App.Algorytm.SzukajPrzepis(typ, typ2);
+                dt = dt.OrderBy(o => o.Stosunek).ToList();
+
+                recipes = ReturnObservableCollection(dt);
+                viewModels.Recipes = recipes;
+                BindingContext = viewModels;
+
+                listView.ItemsSource = recipes;
+            }
+            else
+            {
+                List<Przepis_alg> dt = App.Algorytm.SzukajPrzepis();
+                dt = dt.OrderBy(o => o.Stosunek).ToList();
+
+                recipes = ReturnObservableCollection(dt);
+                viewModels.Recipes = recipes;
+                BindingContext = viewModels;
+
+                listView.ItemsSource = recipes;
             }
         }
     }

@@ -59,7 +59,7 @@ namespace quickmeal
                                    where p.Id == q
                                    select gp.Key).Distinct().Count();
              
-                Przepis przepis = dbConn.Table<Przepis>().Where(x => x.Id==q).First();
+                Przepis przepis = App.PrzepisRepo.GetAllPrzepis().Where(x => x.Id == q).First();
 
                 int stosunek = liczba - liczba_skla;
 
@@ -118,7 +118,7 @@ namespace quickmeal
                                    where p.Id == q
                                    select gp.Key).Distinct().Count();
 
-                Przepis przepis = dbConn.Table<Przepis>().Where(x => x.Id == q).First();
+                Przepis przepis = App.PrzepisRepo.GetAllPrzepis().Where(x => x.Id == q).First();
 
                 int stosunek = liczba - liczba_skla;
 
@@ -177,7 +177,7 @@ namespace quickmeal
                                    where p.Id == q
                                    select gp.Key).Distinct().Count();
 
-                Przepis przepis = dbConn.Table<Przepis>().Where(x => x.Id == q).First();
+                Przepis przepis = App.PrzepisRepo.GetAllPrzepis().Where(x => x.Id == q).First();
 
                 int stosunek = liczba - liczba_skla;
 

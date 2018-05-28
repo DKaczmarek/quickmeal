@@ -9,6 +9,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
             <RowDefinition Height="75"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -22,6 +23,98 @@
         <Button x:Name="DinnerButton" Text="Obiad" TextColor="#1a1a1a"  Grid.Row="1" BackgroundColor="#cccccc" Grid.Column="1" Margin="5,10,5,5" Clicked="DinnerButton_Clicked"/>
         <Button x:Name="DessertButton" Text="Deser" TextColor="#1a1a1a" BackgroundColor="#cccccc" Grid.Row="1" Grid.Column="2" Margin="5,10,10,5" Clicked="DessertButton_Clicked"/>
         <Button x:Name="FindButton" Text="Szukaj"  TextColor="#1a1a1a" BackgroundColor="Orange"  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="10,5,10,10" Clicked="FindButton_Clicked"/>
+        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
+            <BoxView HeightRequest="1" 
+                     BackgroundColor="Orange" 
+                     HorizontalOptions="FillAndExpand"
+                     Margin="5,5,5,5"/>
+            <ListView ItemsSource="{Binding Recipes}"
+                  SeparatorVisibility="None"
+                  HasUnevenRows="True"
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand"
+                  x:Name="FavRecipesList"
+                  Margin="5,5,5,5"
+                  >
+
+                <ListView.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <ViewCell x:Name="RecipeItem">
+
+                            <ViewCell.ContextActions>
+                                <MenuItem Clicked="AddToFavourite_Clicked" CommandParameter="{Binding .}"
+                                Text="Dodaj do ulubionych" />
+                            </ViewCell.ContextActions>
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="1">
+
+                                <StackLayout
+                                     BackgroundColor="#cccccc"
+                                     Orientation="Vertical"
+                                     HorizontalOptions="FillAndExpand">
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                        <Label Text="{Binding Nazwa}"
+                                        FontSize="Medium" 
+                                        Margin="6,0,0,0" TextColor="#1a1a1a" 
+                                        HorizontalOptions="Start"/>
+
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <Label Text="Brak "
+                                       Margin="6,0,0,0" 
+                                       TextColor="#4d4d4d" 
+                                       FontSize="Medium" 
+                                       HorizontalOptions="Start"/>
+
+                                        <Label Text="{Binding Stosunek}"
+                                       Margin="1,0,0,0" 
+                                       TextColor="#4d4d4d" 
+                                       FontSize="Medium"
+                                       HorizontalOptions="Start"/>
+
+                                        <Label Text=" składników"
+                                       FontSize="Medium"
+                                       TextColor="#4d4d4d"
+                                       HorizontalOptions="Start"/>
+
+                                        <Label Text="Czas: "
+                                       Margin="6,0,0,0" 
+                                       TextColor="#4d4d4d" 
+                                       FontSize="Medium" 
+                                       HorizontalOptions="End"/>
+
+                                        <Label Text="{Binding Czas}"
+                                       Margin="1,0,0,0" 
+                                       TextColor="#4d4d4d" 
+                                       FontSize="Medium"
+                                       HorizontalOptions="End"/>
+
+                                        <Label Text="min"
+                                       FontSize="Medium"
+                                       TextColor="#4d4d4d"
+                                       HorizontalOptions="End"/>
+
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </ViewCell>
+
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+            <Button x:Name="ShowButton" Text="Pokaż"  TextColor="#1a1a1a" BackgroundColor="Orange" Margin="10,5,10,10" Clicked="ShowButton_Clicked"/>
+        </StackLayout>
     </Grid>
     
     
