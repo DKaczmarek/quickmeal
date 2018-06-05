@@ -30,7 +30,7 @@ namespace quickmeal
             Typ tp= (from t in dbConn.Table<Typ>() where t.Nazwa == naz select t).FirstOrDefault();
             return tp;
         }
-
+        
         public List<Przepis_alg> SzukajPrzepis()
         {
             var qTyp = (from p in dbConn.Table<Przepis>()
@@ -58,12 +58,30 @@ namespace quickmeal
                                    join p in dbConn.Table<Przepis>() on s.Id_Przepisu equals p.Id
                                    where p.Id == q
                                    select gp.Key).Distinct().Count();
-             
+
+                List<Produkt> list_skla = new List<Produkt>();
+
+                var lista_id_prod = (from pr in dbConn.Table<Produkt>()
+                                     group pr by pr.Id into gp
+                                     join s in dbConn.Table<Skladnik>() on gp.Key equals s.Id_Produktu
+                                     join l in dbConn.Table<Lodowka>() on s.Id_Produktu equals l.Id_Produktu
+                                     join p in dbConn.Table<Przepis>() on s.Id_Przepisu equals p.Id
+                                     where p.Id == q
+                                     select gp.Key).Distinct().ToList();
+
+                foreach (var a in lista_id_prod)
+                {
+                    Produkt p = (from pr in dbConn.Table<Produkt>()
+                                 where a == pr.Id
+                                 select pr).FirstOrDefault();
+                    list_skla.Add(p);
+                }
+
                 Przepis przepis = App.PrzepisRepo.GetAllPrzepis().Where(x => x.Id == q).First();
 
                 int stosunek = liczba - liczba_skla;
 
-                Przepis_alg prze = new Przepis_alg(przepis, liczba_skla, liczba, stosunek);
+                Przepis_alg prze = new Przepis_alg(przepis, liczba_skla, liczba, stosunek, list_skla);
                 lista.Add(prze);
 
             }
@@ -79,7 +97,7 @@ namespace quickmeal
         
             return lista;
         }
-
+        
         public List<Przepis_alg> SzukajPrzepis(Typ typ)
         {
             var qTyp = (from p in dbConn.Table<Przepis>()
@@ -111,6 +129,8 @@ namespace quickmeal
                               where p.Id == q
                               select gp.Key).Distinct().Count();
 
+                
+
                 int liczba_skla = (from pr in dbConn.Table<Produkt>()
                                    group pr by pr.Id into gp
                                    join s in dbConn.Table<Skladnik>() on gp.Key equals s.Id_Produktu
@@ -118,11 +138,28 @@ namespace quickmeal
                                    where p.Id == q
                                    select gp.Key).Distinct().Count();
 
+                List<Produkt> list_skla = new List<Produkt>();
+
+                var lista_id_prod = (from pr in dbConn.Table<Produkt>()
+                                     group pr by pr.Id into gp
+                                     join s in dbConn.Table<Skladnik>() on gp.Key equals s.Id_Produktu
+                                     join l in dbConn.Table<Lodowka>() on s.Id_Produktu equals l.Id_Produktu
+                                     join p in dbConn.Table<Przepis>() on s.Id_Przepisu equals p.Id
+                                     where p.Id == q
+                                     select gp.Key).Distinct().ToList();
+
+                foreach (var a in lista_id_prod)
+                {
+                     Produkt p = (from pr in dbConn.Table<Produkt>()
+                                  where a==pr.Id
+                                  select pr).FirstOrDefault();
+                    list_skla.Add(p);
+                }
                 Przepis przepis = App.PrzepisRepo.GetAllPrzepis().Where(x => x.Id == q).First();
 
                 int stosunek = liczba - liczba_skla;
 
-                Przepis_alg prze = new Przepis_alg(przepis, liczba_skla, liczba, stosunek);
+                Przepis_alg prze = new Przepis_alg(przepis, liczba_skla, liczba, stosunek, list_skla);
                 lista.Add(prze);
 
             }
@@ -177,11 +214,29 @@ namespace quickmeal
                                    where p.Id == q
                                    select gp.Key).Distinct().Count();
 
+                List<Produkt> list_skla = new List<Produkt>();
+
+                var lista_id_prod = (from pr in dbConn.Table<Produkt>()
+                                     group pr by pr.Id into gp
+                                     join s in dbConn.Table<Skladnik>() on gp.Key equals s.Id_Produktu
+                                     join l in dbConn.Table<Lodowka>() on s.Id_Produktu equals l.Id_Produktu
+                                     join p in dbConn.Table<Przepis>() on s.Id_Przepisu equals p.Id
+                                     where p.Id == q
+                                     select gp.Key).Distinct().ToList();
+
+                foreach (var a in lista_id_prod)
+                {
+                    Produkt p = (from pr in dbConn.Table<Produkt>()
+                                 where a == pr.Id
+                                 select pr).FirstOrDefault();
+                    list_skla.Add(p);
+                }
+
                 Przepis przepis = App.PrzepisRepo.GetAllPrzepis().Where(x => x.Id == q).First();
 
                 int stosunek = liczba - liczba_skla;
 
-                Przepis_alg prze = new Przepis_alg(przepis, liczba_skla, liczba, stosunek);
+                Przepis_alg prze = new Przepis_alg(przepis, liczba_skla, liczba, stosunek, list_skla);
                 lista.Add(prze);
 
             }
