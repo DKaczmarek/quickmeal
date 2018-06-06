@@ -155,7 +155,7 @@ namespace quickmeal
 
 
 
-            Przepis slodkie_buleczki = App.PrzepisRepo.AddPrzepis("Słodkie bułeczki pomarańczowe\n\n",
+            Przepis slodkie_buleczki = App.PrzepisRepo.AddPrzepis("Słodkie bułeczki pomarańczowe",
               "1. Przygotowujemy rozczyn. Drożdże rozcieramy z 2 łyżeczkami cukru, 1 łyżką mąki i ciepłym sokiem. Przykrywamy ściereczką i odstawiamy na około 15 minut w ciepłe miejsce, żeby rozczyn ,,ruszył''.\n\n" +
               "2. Przygotowujemy ciasto. Jajko ucieramy z cukrem i cukrem waniliowym na puszystą masę. Do mąki dodajemy sól, wyrośnięte drożdże, utarte jajka i stopniowo wlewając ciepły sok zagniatamy mięciutkie ciasto. Ciasto przykrywamy ściereczką i odstawiamy na około 45 minut w ciepłe miejsce do wyrośnięcia.\n\n" +
               "3. Formowanie: Z wyrośniętego ciasta formujemy okrągłe bułeczki, układamy je na blasze wyłożonej papierem do pieczenia i odstawiamy jeszcze na 15 minut w ciepłe miejsce do podrośnięcia. Wyszło mi 8 sztuk.\n\n" +
