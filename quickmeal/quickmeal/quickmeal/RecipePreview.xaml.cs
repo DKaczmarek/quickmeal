@@ -13,6 +13,7 @@ namespace quickmeal
 {
     public class IngredientItem
     {
+        public string ImgSource { get; set; }
         public string Name { get; set; }
         public int Amount { get; set; }
         public string Gramatura { get; set; }
@@ -42,21 +43,36 @@ namespace quickmeal
         private List<Skladnik> skladniks;
         private ObservableCollection<IngredientItem> IngredientItems { get; set; }
 
-		public RecipePreview (object recipe)
+        // image souce
+        private string HaveMark = "tick.png";
+        private string HaveNotMark = "forbidden_mark.png";
+        private string Mark = "minus.png";
+
+        // przepis types
+        private string Normal = "quickmeal.Models.Przepis";
+        private string Enhanced = "quickmeal.Models.Przepis_alg";
+        private bool EnhancedType;
+
+        public RecipePreview (object recipe)
 		{
 			InitializeComponent ();
             IngredientItems = new ObservableCollection<IngredientItem>();
-            this.recipe = (Przepis)recipe;
-            ShowIngredients();
 
+            // set TypeIndicator
+            var type = recipe.GetType();
+            if (type.FullName == Normal) EnhancedType = false;
+            else if (type.FullName == Enhanced) EnhancedType = true;
+
+            // show ingredients list
+            ShowIngredients(recipe);
             BindingContext = new IngredientItemViewModel(IngredientItems);
             int count = IngredientItems.Count;
             RecipeIngredientsList.HeightRequest = count * 50;
 
-            updateFields();
+            updateFields((Przepis) recipe);
         }
 
-        private void updateFields()
+        private void updateFields(Przepis recipe)
         {
             Label RecipeName = this.FindByName<Label>("RecipeName");
             RecipeName.Text = recipe.Nazwa;
@@ -72,8 +88,11 @@ namespace quickmeal
 
         }
 
-        private void ShowIngredients()
+        private void ShowIngredients(object recap)
         {
+            if (EnhancedType) recipe = (Przepis_alg)recap;
+            else recipe = (Przepis)recap;
+
             this.skladniks = recipe.Zawiera;
             List<Produkt> temp = App.ProduktRepo.GetAllProdukt();
             foreach (Skladnik s in skladniks)
@@ -81,14 +100,32 @@ namespace quickmeal
                 string name = temp.Where(o => o.Id == s.Id_Produktu).FirstOrDefault().Nazwa;
                 int ilosc = s.Ilosc;
                 string gram = temp.Where(o => o.Id == s.Id_Produktu).FirstOrDefault().Gramatura;
+                string source = GetSource(s, recap);
 
                 IngredientItems.Add(new IngredientItem
                 {
                     Name = name,
                     Amount = ilosc,
-                    Gramatura = gram
+                    Gramatura = gram,
+                    ImgSource = source
                 });
             }
         }
-	}
+
+        private string GetSource(Skladnik ingredient, object recap)
+        {
+            if (!EnhancedType)
+                return Mark;
+
+            Przepis_alg temp = (Przepis_alg)recap;
+            foreach (Produkt s in temp.lista_skla)
+            {
+                if (s.Id == ingredient.Id_Produktu)
+                    return HaveMark;
+            }
+
+            return HaveNotMark;
+
+        }
+    }
 }

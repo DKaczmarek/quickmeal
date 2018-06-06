@@ -274,12 +274,6 @@ namespace quickmeal
 
             sniadanie.Przepisy = new List<Przepis> { platkiCzekoladowe };
             App.TypRepo.Update(sniadanie);
-
-            var przepisy = App.PrzepisRepo.GetAllPrzepis();
-            var typy = App.TypRepo.GetAllTyp();
-            var kategorie = App.KategoriaRepo.GetAllKategoria();
-            var skladniki = App.SkladnikRepo.GetAllSkladnik();
-            var produkty = App.ProduktRepo.GetAllProdukt();
         }
     }
 }

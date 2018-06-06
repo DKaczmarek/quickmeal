@@ -60,7 +60,11 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Margin="6,4,6,4"
-                                         Orientation="Horizontal">
+                                         Orientation="Horizontal"
+                                         VerticalOptions="CenterAndExpand">
+                                <Image Source="{Binding ImgSource}"
+                                       Scale="1.25"
+                                       />
                                 <Label Text="{Binding Name}"
                                        FontSize="18"
                                        TextColor="#1a1a1a"

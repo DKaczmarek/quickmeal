@@ -116,8 +116,20 @@ namespace quickmeal
 
         async void AddToFavourite_Clicked(object sender, EventArgs e)
         {
+            MenuItem SelectedRecipe = ((MenuItem)sender);
+            Przepis Fav = (Przepis)SelectedRecipe.CommandParameter;
 
-            await DisplayAlert("uwaga", "Dodano do ulubionych!", "OK");
+            Ulubiony Favs = App.UlubionyRepo.GetAllUlubione().Where(u => u.Id_Przepisu == Fav.Id).FirstOrDefault();
+            if (Favs != null)
+                await DisplayAlert("Powiadomienie", "Ten przepis znajduje się już w ulubionych!", "OK");
+            else
+            {
+                Ulubiony new_fav = App.UlubionyRepo.AddUlubiony();
+                new_fav.Id_Przepisu = Fav.Id;
+                App.UlubionyRepo.Update(new_fav);
+
+                await DisplayAlert("Powiadomienie", "Dodano przepis do ulubionych!", "OK");
+            }
         }
 
         private ObservableCollection<Przepis_alg> ReturnObservableCollection(List<Przepis_alg> l)
@@ -150,6 +162,7 @@ namespace quickmeal
                 Typ typ = App.Algorytm.SzukajTypu("Śniadanie");
 
                 List<Przepis_alg> dt = App.Algorytm.SzukajPrzepis(typ);
+                if(CheckIfEmpty(dt)) await DisplayAlert("Hej!", "Twoja lodówka ma za mało produktów, aby znaleźć przepis.", "OK");
                 dt = dt.OrderBy(o => o.Stosunek).ToList();
 
                 recipes = ReturnObservableCollection(dt);
@@ -163,6 +176,21 @@ namespace quickmeal
                 Typ typ = App.Algorytm.SzukajTypu("Obiad");
 
                 List<Przepis_alg> dt = App.Algorytm.SzukajPrzepis(typ);
+                if (CheckIfEmpty(dt)) await DisplayAlert("Hej!", "Twoja lodówka ma za mało produktów, aby znaleźć przepis.", "OK");
+                dt = dt.OrderBy(o => o.Stosunek).ToList();
+
+                recipes = ReturnObservableCollection(dt);
+                viewModels.Recipes = recipes;
+                BindingContext = viewModels;
+
+                listView.ItemsSource = recipes;
+            }
+            else if (!BreakfastClicked && DessertClicked && !DinnerClicked)
+            {
+                Typ typ = App.Algorytm.SzukajTypu("Deser");
+
+                List<Przepis_alg> dt = App.Algorytm.SzukajPrzepis(typ);
+                if (CheckIfEmpty(dt)) await DisplayAlert("Hej!", "Twoja lodówka ma za mało produktów, aby znaleźć przepis.", "OK");
                 dt = dt.OrderBy(o => o.Stosunek).ToList();
 
                 recipes = ReturnObservableCollection(dt);
@@ -177,6 +205,37 @@ namespace quickmeal
                 Typ typ2 = App.Algorytm.SzukajTypu("Obiad");
 
                 List<Przepis_alg> dt = App.Algorytm.SzukajPrzepis(typ, typ2);
+                if (CheckIfEmpty(dt)) await DisplayAlert("Hej!", "Twoja lodówka ma za mało produktów, aby znaleźć przepis.", "OK");
+                dt = dt.OrderBy(o => o.Stosunek).ToList();
+
+                recipes = ReturnObservableCollection(dt);
+                viewModels.Recipes = recipes;
+                BindingContext = viewModels;
+
+                listView.ItemsSource = recipes;
+            }
+            else if (BreakfastClicked && DessertClicked && !DinnerClicked)
+            {
+                Typ typ = App.Algorytm.SzukajTypu("Śniadanie");
+                Typ typ2 = App.Algorytm.SzukajTypu("Deser");
+
+                List<Przepis_alg> dt = App.Algorytm.SzukajPrzepis(typ, typ2);
+                if (CheckIfEmpty(dt)) await DisplayAlert("Hej!", "Twoja lodówka ma za mało produktów, aby znaleźć przepis.", "OK");
+                dt = dt.OrderBy(o => o.Stosunek).ToList();
+
+                recipes = ReturnObservableCollection(dt);
+                viewModels.Recipes = recipes;
+                BindingContext = viewModels;
+
+                listView.ItemsSource = recipes;
+            }
+            else if (!BreakfastClicked && DessertClicked && DinnerClicked)
+            {
+                Typ typ = App.Algorytm.SzukajTypu("Obiad");
+                Typ typ2 = App.Algorytm.SzukajTypu("Deser");
+
+                List<Przepis_alg> dt = App.Algorytm.SzukajPrzepis(typ, typ2);
+                if (CheckIfEmpty(dt)) await DisplayAlert("Hej!", "Twoja lodówka ma za mało produktów, aby znaleźć przepis.", "OK");
                 dt = dt.OrderBy(o => o.Stosunek).ToList();
 
                 recipes = ReturnObservableCollection(dt);
@@ -188,6 +247,7 @@ namespace quickmeal
             else
             {
                 List<Przepis_alg> dt = App.Algorytm.SzukajPrzepis();
+                if (CheckIfEmpty(dt)) await DisplayAlert("Hej!", "Twoja lodówka ma za mało produktów, aby znaleźć przepis.", "OK");
                 dt = dt.OrderBy(o => o.Stosunek).ToList();
 
                 recipes = ReturnObservableCollection(dt);
@@ -196,6 +256,14 @@ namespace quickmeal
 
                 listView.ItemsSource = recipes;
             }
+        }
+
+        private bool CheckIfEmpty(List<Przepis_alg> ListToCheck)
+        {
+            if (ListToCheck.Count == 0)
+                return true;
+            else
+                return false;
         }
     }
 }

@@ -9,7 +9,7 @@ namespace quickmeal.Models
         public int Liczba_wsz_skladnikow { get; set; }
         public int Liczba_pas_skladnikow { get; set; }
         public int Stosunek { get; set; }
-        public List<Produkt> lista_skla;
+        public List<Produkt> lista_skla { get; set; }
 
         public Przepis_alg(Przepis prze, int Liczba_wszystkich, int Liczba_pasujacych, int Stosu, List<Produkt> li) {
             this.Nazwa = prze.Nazwa;
@@ -20,6 +20,7 @@ namespace quickmeal.Models
             this.ulubiony = prze.ulubiony;
             this.Zawiera = prze.Zawiera;
             this.Zdjecie = prze.Zdjecie;
+
             lista_skla = new List<Produkt>();
             lista_skla = li;
             Liczba_pas_skladnikow = Liczba_pasujacych;

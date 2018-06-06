@@ -25,9 +25,9 @@ namespace quickmeal
         }
 
 
-        public Typ SzukajTypu(String naz)
+        public Typ SzukajTypu(string naz)
         {
-            Typ tp= (from t in dbConn.Table<Typ>() where t.Nazwa == naz select t).FirstOrDefault();
+            Typ tp = (from t in dbConn.Table<Typ>() where t.Nazwa == naz select t).FirstOrDefault();
             return tp;
         }
         
@@ -163,6 +163,7 @@ namespace quickmeal
                 lista.Add(prze);
 
             }
+
             lista.Sort(delegate (Przepis_alg x, Przepis_alg y)
             {
                 int a = y.Stosunek.CompareTo(x.Stosunek);
