@@ -125,8 +125,8 @@ namespace quickmeal
                 "2. Pokroić je na połówki i wrzucić do kielicha blendera. Banana pokroić na kawałki, dodać do truskawek.\n\n" +
                 "3. Dodać również wiórki kokosowe i zalać wszystko mocno schłodzonym mlekiem.\n\n" +
                 "4. Blendować do momentu, aż składniki dobrze się ze sobą połączą. Pić od razu po przygotowaniu.\n\n",
-                15, 
-                "https://pliki.doradcasmaku.pl/big-cropped-1527782368-koktajl-truskawkowo-bananowo-kokosowy-got5-male.jpg"
+                15,
+                "https://static.mojewypieki.com/upload/images/przepisy/Smoothie%20truskawkowo%20-%20bananowe/IMG_3191.jpg"
                 );
 
             Skladnik skladnikktbk1 = App.SkladnikRepo.AddSkladnik(250);
@@ -162,7 +162,7 @@ namespace quickmeal
               "4. Po tym czasie bułki pieczemy w temperaturze 180 stopni do zrumienienia przez około 30-35 minut.\n\n" +
               "5. Tak wykonane bułki są gotowe do podania. Smacznego życzę.",
               60,
-              "https://pliki.doradcasmaku.pl/big-cropped-1528125601-bulkip-037-kopiowanie.jpg");
+              "http://www.wysmakowane.pl/wp-content/uploads/2017/09/%C5%9Bniadanie-s%C5%82odkie-buleczki-maslane-z-chocko-rodzynk0.jpg");
 
             Skladnik skladniklsb1 = App.SkladnikRepo.AddSkladnik(25);
             slodkie_buleczki.Zawiera.Add(skladniklsb1);
@@ -267,7 +267,7 @@ namespace quickmeal
                 "6. Wlewamy jajka na patelnię i cały czas mieszamy. Kiedy jajka się zetną, przekładamy je do miseczki.\n\n"+
                 "7. Siekamy szczypiorek i posypujemy nim gotową jajecznicę.",
                 15,
-                "https://www.zajadam.pl/wp-content/uploads/2015/11/jajecznica-3-2-891x500.jpg");
+                "https://static.gotujmy.pl/ZDJECIE_PORADY_B/jajecznica-318480.jpg");
 
             Skladnik skladnikJajecznica1 = App.SkladnikRepo.AddSkladnik(3);
             jajecznica.Zawiera.Add(skladnikJajecznica1);
@@ -445,7 +445,7 @@ namespace quickmeal
                 "7. Makaron ugotuj w dużej ilości posolonej wody, odcedź i połącz z sosem mięsnym.\n\n" +
                 "8. Podawaj zaraz po przygotowaniu.",
                 50,
-                "https://www.winiary.pl/image.ashx/zdjecie.jpg?fileID=75055&width=1400&height=1400&quality=84&bg=0&resize=0");
+                "https://s3.przepisy.pl/przepisy3ii/img/variants/767x0/makaron-z-kurczakiem-i-sosem-smietanowym.jpg");
 
             Skladnik s = App.SkladnikRepo.AddSkladnik(1);
             mzkwss.Zawiera.Add(s);
@@ -498,7 +498,7 @@ namespace quickmeal
                 "5. Makaron ugotuj w dużej ilości posolonej wody.\n\n" +
                 "6. Makaron połącz z zawartością patelni, podawaj zaraz po przygotowaniu.\n\n",
                 55,
-                "https://www.winiary.pl/image.ashx/zdjecie.jpg?fileID=210327&width=1400&height=1400&quality=84&bg=0&resize=0");
+                "https://static.gotujmy.pl/ZDJECIE_PRZEPISU_ETAP/wiosenny-makaron-ze-szparagami-i-kurczakiem-463877.jpg");
 
             s = App.SkladnikRepo.AddSkladnik(200);
             mzkis.Zawiera.Add(s);

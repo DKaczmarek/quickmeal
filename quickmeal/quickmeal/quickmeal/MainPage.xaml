@@ -18,7 +18,6 @@
     <ScrollView x:Name="mainPageScrollView">
         <StackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
 
-            <Label Text="Witamy w kuchni!" FontSize="24" TextColor="#404040" HorizontalOptions="CenterAndExpand"/>
             <Image Source="mainstock.png"
                    HorizontalOptions="EndAndExpand"/>
             
